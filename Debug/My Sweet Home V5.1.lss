@@ -1,0 +1,2227 @@
+
+My Sweet Home V5.1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000ac8  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000017c  00800060  00000ac8  00000b5c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000005c  008001dc  008001dc  00000cd8  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  00000cd8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000097  00000000  00000000  000013a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 00000020  00000000  00000000  0000143b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 0000030d  00000000  00000000  0000145b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00000a40  00000000  00000000  00001768  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 00000302  00000000  00000000  000021a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   00000e9b  00000000  00000000  000024aa  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  00000210  00000000  00000000  00003348  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    00000530  00000000  00000000  00003558  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    000003de  00000000  00000000  00003a88  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_pubtypes 00000041  00000000  00000000  00003e66  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_ranges 00000030  00000000  00000000  00003ea7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	e0 c4       	rjmp	.+2496   	; 0x9c4 <__vector_1>
+   4:	29 c5       	rjmp	.+2642   	; 0xa58 <__vector_2>
+   6:	2a c0       	rjmp	.+84     	; 0x5c <__bad_interrupt>
+   8:	3e c4       	rjmp	.+2172   	; 0x886 <__vector_4>
+   a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
+   c:	27 c0       	rjmp	.+78     	; 0x5c <__bad_interrupt>
+   e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
+  10:	fa c3       	rjmp	.+2036   	; 0x806 <__vector_8>
+  12:	cd c3       	rjmp	.+1946   	; 0x7ae <__vector_9>
+  14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
+  16:	74 c4       	rjmp	.+2280   	; 0x900 <__vector_11>
+  18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
+  1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
+  1c:	49 c5       	rjmp	.+2706   	; 0xab0 <__vector_14>
+  1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
+  20:	1d c0       	rjmp	.+58     	; 0x5c <__bad_interrupt>
+  22:	1c c0       	rjmp	.+56     	; 0x5c <__bad_interrupt>
+  24:	1b c0       	rjmp	.+54     	; 0x5c <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+  32:	11 e0       	ldi	r17, 0x01	; 1
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	e8 ec       	ldi	r30, 0xC8	; 200
+  3a:	fa e0       	ldi	r31, 0x0A	; 10
+  3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
+  3e:	05 90       	lpm	r0, Z+
+  40:	0d 92       	st	X+, r0
+  42:	ac 3d       	cpi	r26, 0xDC	; 220
+  44:	b1 07       	cpc	r27, r17
+  46:	d9 f7       	brne	.-10     	; 0x3e <__SP_H__>
+
+00000048 <__do_clear_bss>:
+  48:	12 e0       	ldi	r17, 0x02	; 2
+  4a:	ac ed       	ldi	r26, 0xDC	; 220
+  4c:	b1 e0       	ldi	r27, 0x01	; 1
+  4e:	01 c0       	rjmp	.+2      	; 0x52 <.do_clear_bss_start>
+
+00000050 <.do_clear_bss_loop>:
+  50:	1d 92       	st	X+, r1
+
+00000052 <.do_clear_bss_start>:
+  52:	a8 33       	cpi	r26, 0x38	; 56
+  54:	b1 07       	cpc	r27, r17
+  56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
+  58:	74 d3       	rcall	.+1768   	; 0x742 <main>
+  5a:	34 c5       	rjmp	.+2664   	; 0xac4 <_exit>
+
+0000005c <__bad_interrupt>:
+  5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
+
+0000005e <buffer_wash>:
+	}
+	if(*(string+j) == '\0')		return k-1;
+	else						return -1;
+}
+void buffer_wash()
+{
+  5e:	e4 e1       	ldi	r30, 0x14	; 20
+  60:	f2 e0       	ldi	r31, 0x02	; 2
+		j++;
+	}
+	if(*(string+j) == '\0')		return k-1;
+	else						return -1;
+}
+void buffer_wash()
+  62:	cf 01       	movw	r24, r30
+  64:	4e 96       	adiw	r24, 0x1e	; 30
+{
+	for (int j=0;j<30 ; j++)
+		{
+			buffer[j]=0;
+  66:	11 92       	st	Z+, r1
+	if(*(string+j) == '\0')		return k-1;
+	else						return -1;
+}
+void buffer_wash()
+{
+	for (int j=0;j<30 ; j++)
+  68:	e8 17       	cp	r30, r24
+  6a:	f9 07       	cpc	r31, r25
+  6c:	e1 f7       	brne	.-8      	; 0x66 <buffer_wash+0x8>
+		{
+			buffer[j]=0;
+		}
+}
+  6e:	08 95       	ret
+
+00000070 <esp_initialize>:
+struct ROOM room;
+
+
+void esp_initialize(char i)		//0:usart=ready		1:usart=OK				2:usart=ERROR
+{
+	if (i==0)
+  70:	88 23       	and	r24, r24
+  72:	71 f4       	brne	.+28     	; 0x90 <esp_initialize+0x20>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  74:	8f ef       	ldi	r24, 0xFF	; 255
+  76:	9f e5       	ldi	r25, 0x5F	; 95
+  78:	a3 e0       	ldi	r26, 0x03	; 3
+  7a:	81 50       	subi	r24, 0x01	; 1
+  7c:	90 40       	sbci	r25, 0x00	; 0
+  7e:	a0 40       	sbci	r26, 0x00	; 0
+  80:	e1 f7       	brne	.-8      	; 0x7a <esp_initialize+0xa>
+  82:	00 c0       	rjmp	.+0      	; 0x84 <esp_initialize+0x14>
+  84:	00 00       	nop
+	{
+		_delay_ms(100);
+		room.wifi_initializing_state=0;
+  86:	10 92 e6 01 	sts	0x01E6, r1
+		room.wifi_initializing_scape=0;
+  8a:	10 92 e7 01 	sts	0x01E7, r1
+  8e:	11 c0       	rjmp	.+34     	; 0xb2 <esp_initialize+0x42>
+	}
+	if (i==1)
+  90:	81 30       	cpi	r24, 0x01	; 1
+  92:	41 f4       	brne	.+16     	; 0xa4 <esp_initialize+0x34>
+	{
+		room.wifi_initializing_state++;
+  94:	80 91 e6 01 	lds	r24, 0x01E6
+  98:	8f 5f       	subi	r24, 0xFF	; 255
+  9a:	80 93 e6 01 	sts	0x01E6, r24
+		room.wifi_initializing_scape=0;
+  9e:	10 92 e7 01 	sts	0x01E7, r1
+  a2:	0b c0       	rjmp	.+22     	; 0xba <esp_initialize+0x4a>
+	}		
+	if (i==2)
+  a4:	82 30       	cpi	r24, 0x02	; 2
+  a6:	29 f4       	brne	.+10     	; 0xb2 <esp_initialize+0x42>
+	{
+		room.wifi_initializing_scape++;
+  a8:	80 91 e7 01 	lds	r24, 0x01E7
+  ac:	8f 5f       	subi	r24, 0xFF	; 255
+  ae:	80 93 e7 01 	sts	0x01E7, r24
+	}
+	if (room.wifi_initializing_scape<=4)
+  b2:	80 91 e7 01 	lds	r24, 0x01E7
+  b6:	85 30       	cpi	r24, 0x05	; 5
+  b8:	48 f5       	brcc	.+82     	; 0x10c <esp_initialize+0x9c>
+	{
+		switch(room.wifi_initializing_state)
+  ba:	80 91 e6 01 	lds	r24, 0x01E6
+  be:	82 30       	cpi	r24, 0x02	; 2
+  c0:	b1 f0       	breq	.+44     	; 0xee <esp_initialize+0x7e>
+  c2:	83 30       	cpi	r24, 0x03	; 3
+  c4:	28 f4       	brcc	.+10     	; 0xd0 <esp_initialize+0x60>
+  c6:	88 23       	and	r24, r24
+  c8:	51 f0       	breq	.+20     	; 0xde <esp_initialize+0x6e>
+  ca:	81 30       	cpi	r24, 0x01	; 1
+  cc:	f9 f4       	brne	.+62     	; 0x10c <esp_initialize+0x9c>
+  ce:	0b c0       	rjmp	.+22     	; 0xe6 <esp_initialize+0x76>
+  d0:	84 30       	cpi	r24, 0x04	; 4
+  d2:	a9 f0       	breq	.+42     	; 0xfe <esp_initialize+0x8e>
+  d4:	84 30       	cpi	r24, 0x04	; 4
+  d6:	78 f0       	brcs	.+30     	; 0xf6 <esp_initialize+0x86>
+  d8:	85 30       	cpi	r24, 0x05	; 5
+  da:	c1 f4       	brne	.+48     	; 0x10c <esp_initialize+0x9c>
+  dc:	14 c0       	rjmp	.+40     	; 0x106 <esp_initialize+0x96>
+		{
+			case 0:
+				esp_command("ATE1");
+  de:	80 e6       	ldi	r24, 0x60	; 96
+  e0:	90 e0       	ldi	r25, 0x00	; 0
+  e2:	95 d2       	rcall	.+1322   	; 0x60e <esp_command>
+			break;
+  e4:	08 95       	ret
+			case 1:
+				esp_command("AT+CWMODE=3");			
+  e6:	85 e6       	ldi	r24, 0x65	; 101
+  e8:	90 e0       	ldi	r25, 0x00	; 0
+  ea:	91 d2       	rcall	.+1314   	; 0x60e <esp_command>
+			break;
+  ec:	08 95       	ret
+			case 2:
+				esp_command("AT+CIPAP=#192.168.1.250#,#192.168.1.250#,#255.255.255.0#");
+  ee:	81 e7       	ldi	r24, 0x71	; 113
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	8d d2       	rcall	.+1306   	; 0x60e <esp_command>
+			break;
+  f4:	08 95       	ret
+			case 3:
+				esp_command("AT+CIPSTA=#192.168.1.250#,#192.168.1.1#,#255.255.255.0#");
+  f6:	8a ea       	ldi	r24, 0xAA	; 170
+  f8:	90 e0       	ldi	r25, 0x00	; 0
+  fa:	89 d2       	rcall	.+1298   	; 0x60e <esp_command>
+			break;
+  fc:	08 95       	ret
+			case 4:
+				esp_command("AT+CIPMUX=1");
+  fe:	82 ee       	ldi	r24, 0xE2	; 226
+ 100:	90 e0       	ldi	r25, 0x00	; 0
+ 102:	85 d2       	rcall	.+1290   	; 0x60e <esp_command>
+			break;
+ 104:	08 95       	ret
+			case 5:
+				esp_command("AT+CIPSERVER=1,5010");
+ 106:	8e ee       	ldi	r24, 0xEE	; 238
+ 108:	90 e0       	ldi	r25, 0x00	; 0
+ 10a:	81 d2       	rcall	.+1282   	; 0x60e <esp_command>
+ 10c:	08 95       	ret
+
+0000010e <initialize>:
+	
+ 	
+}
+void initialize()				//mand
+{
+	DDRD &= ~(1<<RXD | 1<<Auto_Enable_Button1 | 1<<Auto_Enable_Button2 | 1<<First_key | 1<<Second_Key | 1<<INT0_Pir_enter_exit | 1<<INT1_pir_motion);			
+ 10e:	81 b3       	in	r24, 0x11	; 17
+ 110:	82 70       	andi	r24, 0x02	; 2
+ 112:	81 bb       	out	0x11, r24	; 17
+	DDRD |= (1<<TXD);
+ 114:	89 9a       	sbi	0x11, 1	; 17
+	Inside_Port |= 1<<Auto_Enable_Button1 | 1<<Auto_Enable_Button2 | 1<<First_key | 1<<Second_Key;										//buttons internally pulled up	
+ 116:	82 b3       	in	r24, 0x12	; 18
+ 118:	80 6f       	ori	r24, 0xF0	; 240
+ 11a:	82 bb       	out	0x12, r24	; 18
+																	
+	DDRB |= 1<<Auto_LED1 | 1<<Auto_LED2 | 1<<Relay1 | 1<<Relay2;
+ 11c:	87 b3       	in	r24, 0x17	; 23
+ 11e:	8f 60       	ori	r24, 0x0F	; 15
+ 120:	87 bb       	out	0x17, r24	; 23
+	Outside_Port |= 1<<Auto_LED1 | 1<<Auto_LED2;
+ 122:	88 b3       	in	r24, 0x18	; 24
+ 124:	83 60       	ori	r24, 0x03	; 3
+ 126:	88 bb       	out	0x18, r24	; 24
+	
+	DDRC &= ~(1<<Day_Night);
+ 128:	a1 98       	cbi	0x14, 1	; 20
+	Day_Night_Or_PIR_Port &= ~(1<<Day_Night);						//Both are tristate	
+ 12a:	a9 98       	cbi	0x15, 1	; 21
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Variable Initialize
+	sp = 0;
+ 12c:	10 92 36 02 	sts	0x0236, r1
+	sp2=0;
+ 130:	10 92 f5 01 	sts	0x01F5, r1
+	timer0_count = 0;
+ 134:	10 92 35 02 	sts	0x0235, r1
+	timer1_count = 0;
+ 138:	10 92 f4 01 	sts	0x01F4, r1
+	//timer2_count = 0;
+	auto_button_can_action = 1;
+ 13c:	21 e0       	ldi	r18, 0x01	; 1
+ 13e:	20 93 32 02 	sts	0x0232, r18
+	room.name = "navid";// TODO
+ 142:	82 e0       	ldi	r24, 0x02	; 2
+ 144:	91 e0       	ldi	r25, 0x01	; 1
+ 146:	90 93 de 01 	sts	0x01DE, r25
+ 14a:	80 93 dd 01 	sts	0x01DD, r24
+	room.lamp1_in_auto_mode = 1;
+ 14e:	20 93 e1 01 	sts	0x01E1, r18
+	room.lamp2_in_auto_mode = 1;
+ 152:	20 93 e2 01 	sts	0x01E2, r18
+	//room.day_night_adc_reference_value = 128; // TODO
+	//room.day_night_adc_reference_tolerance = 10; // TODO
+	room.have_wifi_module = 1;
+ 156:	20 93 e5 01 	sts	0x01E5, r18
+	room.wifi_initializing_scape = 0;
+ 15a:	10 92 e7 01 	sts	0x01E7, r1
+	
+	room.key2_is_disconnect = 1;
+ 15e:	20 93 e4 01 	sts	0x01E4, r18
+	room.key1_is_disconnect = 1;
+ 162:	20 93 e3 01 	sts	0x01E3, r18
+	
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Interrupts enable
+	sei();
+ 166:	78 94       	sei
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Uart
+	UCSRB |= 1<<RXCIE | 1<<RXEN | 1<<TXEN;
+ 168:	8a b1       	in	r24, 0x0a	; 10
+ 16a:	88 69       	ori	r24, 0x98	; 152
+ 16c:	8a b9       	out	0x0a, r24	; 10
+	UCSRC |= 1<<URSEL | 1<<UCSZ0 | 1<<UCSZ1;
+ 16e:	80 b5       	in	r24, 0x20	; 32
+ 170:	86 68       	ori	r24, 0x86	; 134
+ 172:	80 bd       	out	0x20, r24	; 32
+	UBRRH = 0x00;
+ 174:	10 bc       	out	0x20, r1	; 32
+	UBRRL = 5;    //////////////115,200
+ 176:	85 e0       	ldi	r24, 0x05	; 5
+ 178:	89 b9       	out	0x09, r24	; 9
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Timers Interrupts Enable
+	TIMSK |= (1<<TOIE2 | 1<<TOIE1| 1<<TOIE0);
+ 17a:	89 b7       	in	r24, 0x39	; 57
+ 17c:	85 64       	ori	r24, 0x45	; 69
+ 17e:	89 bf       	out	0x39, r24	; 57
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// External Interrupts Enable
+	MCUCR &= ~(1<<ISC01);
+ 180:	85 b7       	in	r24, 0x35	; 53
+ 182:	8d 7f       	andi	r24, 0xFD	; 253
+ 184:	85 bf       	out	0x35, r24	; 53
+	MCUCR |= (1<<ISC00);
+ 186:	85 b7       	in	r24, 0x35	; 53
+ 188:	81 60       	ori	r24, 0x01	; 1
+ 18a:	85 bf       	out	0x35, r24	; 53
+	GICR |= (1<<INT0);
+ 18c:	8b b7       	in	r24, 0x3b	; 59
+ 18e:	80 64       	ori	r24, 0x40	; 64
+ 190:	8b bf       	out	0x3b, r24	; 59
+	MCUCR |= (1<<ISC10 | 1<<ISC11);
+ 192:	85 b7       	in	r24, 0x35	; 53
+ 194:	8c 60       	ori	r24, 0x0C	; 12
+ 196:	85 bf       	out	0x35, r24	; 53
+	GICR |= (1<<INT1);
+ 198:	8b b7       	in	r24, 0x3b	; 59
+ 19a:	80 68       	ori	r24, 0x80	; 128
+ 19c:	8b bf       	out	0x3b, r24	; 59
+}
+ 19e:	08 95       	ret
+
+000001a0 <lamp_on>:
+void lamp_on(char n )
+{
+	if(n==1)	Outside_Port |= 1<<Relay1;
+ 1a0:	81 30       	cpi	r24, 0x01	; 1
+ 1a2:	11 f4       	brne	.+4      	; 0x1a8 <lamp_on+0x8>
+ 1a4:	c2 9a       	sbi	0x18, 2	; 24
+ 1a6:	08 95       	ret
+	if(n==2)	Outside_Port |= 1<<Relay2;
+ 1a8:	82 30       	cpi	r24, 0x02	; 2
+ 1aa:	09 f4       	brne	.+2      	; 0x1ae <lamp_on+0xe>
+ 1ac:	c3 9a       	sbi	0x18, 3	; 24
+ 1ae:	08 95       	ret
+
+000001b0 <lamp_off>:
+}
+void lamp_off(char n)
+{
+	if(n==1)	Outside_Port &= ~(1<<Relay1);
+ 1b0:	81 30       	cpi	r24, 0x01	; 1
+ 1b2:	11 f4       	brne	.+4      	; 0x1b8 <lamp_off+0x8>
+ 1b4:	c2 98       	cbi	0x18, 2	; 24
+ 1b6:	08 95       	ret
+	if(n==2)	Outside_Port &= ~(1<<Relay2);
+ 1b8:	82 30       	cpi	r24, 0x02	; 2
+ 1ba:	09 f4       	brne	.+2      	; 0x1be <lamp_off+0xe>
+ 1bc:	c3 98       	cbi	0x18, 3	; 24
+ 1be:	08 95       	ret
+
+000001c0 <lamp_auto_on>:
+}
+void lamp_auto_on()
+{
+	if(room.Is_Dark)			//if night
+ 1c0:	80 91 ec 01 	lds	r24, 0x01EC
+ 1c4:	88 23       	and	r24, r24
+ 1c6:	41 f0       	breq	.+16     	; 0x1d8 <lamp_auto_on+0x18>
+	{
+		if(room.lamp1_in_auto_mode)		Outside_Port |= 1<<Relay1;
+ 1c8:	80 91 e1 01 	lds	r24, 0x01E1
+ 1cc:	81 11       	cpse	r24, r1
+ 1ce:	c2 9a       	sbi	0x18, 2	; 24
+	    if(room.lamp2_in_auto_mode)		Outside_Port |= 1<<Relay2;
+ 1d0:	80 91 e2 01 	lds	r24, 0x01E2
+ 1d4:	81 11       	cpse	r24, r1
+ 1d6:	c3 9a       	sbi	0x18, 3	; 24
+ 1d8:	08 95       	ret
+
+000001da <auto_toggle>:
+	}	
+	///////// !!!user check must be done
+}
+void auto_toggle(char n)
+{
+ 1da:	1f 93       	push	r17
+ 1dc:	18 2f       	mov	r17, r24
+	if(n==1)
+ 1de:	81 30       	cpi	r24, 0x01	; 1
+ 1e0:	a1 f4       	brne	.+40     	; 0x20a <auto_toggle+0x30>
+	{
+		if (room.lamp1_in_auto_mode)
+ 1e2:	80 91 e1 01 	lds	r24, 0x01E1
+ 1e6:	88 23       	and	r24, r24
+ 1e8:	21 f0       	breq	.+8      	; 0x1f2 <auto_toggle+0x18>
+		{
+			room.lamp1_in_auto_mode = 0;
+ 1ea:	10 92 e1 01 	sts	0x01E1, r1
+			Outside_Port &= ~(1<<Auto_LED1);
+ 1ee:	c0 98       	cbi	0x18, 0	; 24
+ 1f0:	04 c0       	rjmp	.+8      	; 0x1fa <auto_toggle+0x20>
+		}
+		else
+		{
+			room.lamp1_in_auto_mode = 1;
+ 1f2:	81 e0       	ldi	r24, 0x01	; 1
+ 1f4:	80 93 e1 01 	sts	0x01E1, r24
+			Outside_Port |= 1<<Auto_LED1;
+ 1f8:	c0 9a       	sbi	0x18, 0	; 24
+		}
+		if (room.someone_in_room)
+ 1fa:	80 91 f0 01 	lds	r24, 0x01F0
+ 1fe:	88 23       	and	r24, r24
+ 200:	21 f0       	breq	.+8      	; 0x20a <auto_toggle+0x30>
+		{
+			//There are somebody in the room
+			if (room.Is_Dark)
+ 202:	80 91 ec 01 	lds	r24, 0x01EC
+ 206:	81 11       	cpse	r24, r1
+			{
+				lamp_auto_on();
+ 208:	db df       	rcall	.-74     	; 0x1c0 <lamp_auto_on>
+			}
+		}
+	}
+	if(n==2)
+ 20a:	12 30       	cpi	r17, 0x02	; 2
+ 20c:	a1 f4       	brne	.+40     	; 0x236 <auto_toggle+0x5c>
+	{
+		if (room.lamp2_in_auto_mode)
+ 20e:	80 91 e2 01 	lds	r24, 0x01E2
+ 212:	88 23       	and	r24, r24
+ 214:	21 f0       	breq	.+8      	; 0x21e <auto_toggle+0x44>
+		{
+			room.lamp2_in_auto_mode = 0;
+ 216:	10 92 e2 01 	sts	0x01E2, r1
+			Outside_Port &= ~(1<<Auto_LED2);
+ 21a:	c1 98       	cbi	0x18, 1	; 24
+ 21c:	04 c0       	rjmp	.+8      	; 0x226 <auto_toggle+0x4c>
+		}
+		else
+		{
+			room.lamp2_in_auto_mode = 1;
+ 21e:	81 e0       	ldi	r24, 0x01	; 1
+ 220:	80 93 e2 01 	sts	0x01E2, r24
+			Outside_Port |= 1<<Auto_LED2;
+ 224:	c1 9a       	sbi	0x18, 1	; 24
+		}
+		if (room.someone_in_room)
+ 226:	80 91 f0 01 	lds	r24, 0x01F0
+ 22a:	88 23       	and	r24, r24
+ 22c:	21 f0       	breq	.+8      	; 0x236 <auto_toggle+0x5c>
+		{
+			//There are somebody in the room
+			if (room.Is_Dark)
+ 22e:	80 91 ec 01 	lds	r24, 0x01EC
+ 232:	81 11       	cpse	r24, r1
+			{
+				lamp_auto_on();
+ 234:	c5 df       	rcall	.-118    	; 0x1c0 <lamp_auto_on>
+			}
+		}
+	}
+	/////////////////////////////////////
+	if(!(room.lamp1_in_auto_mode))	
+ 236:	80 91 e1 01 	lds	r24, 0x01E1
+ 23a:	88 23       	and	r24, r24
+ 23c:	49 f4       	brne	.+18     	; 0x250 <auto_toggle+0x76>
+	{
+		if (room.key1_is_disconnect)
+ 23e:	80 91 e3 01 	lds	r24, 0x01E3
+ 242:	88 23       	and	r24, r24
+ 244:	19 f0       	breq	.+6      	; 0x24c <auto_toggle+0x72>
+		{
+			lamp_off(1);
+ 246:	81 e0       	ldi	r24, 0x01	; 1
+ 248:	b3 df       	rcall	.-154    	; 0x1b0 <lamp_off>
+ 24a:	02 c0       	rjmp	.+4      	; 0x250 <auto_toggle+0x76>
+		}
+		else
+		{
+			lamp_on(1);
+ 24c:	81 e0       	ldi	r24, 0x01	; 1
+ 24e:	a8 df       	rcall	.-176    	; 0x1a0 <lamp_on>
+		}
+	}	
+	if(!(room.lamp2_in_auto_mode))	
+ 250:	80 91 e2 01 	lds	r24, 0x01E2
+ 254:	88 23       	and	r24, r24
+ 256:	49 f4       	brne	.+18     	; 0x26a <auto_toggle+0x90>
+	{
+		if (room.key2_is_disconnect)
+ 258:	80 91 e4 01 	lds	r24, 0x01E4
+ 25c:	88 23       	and	r24, r24
+ 25e:	19 f0       	breq	.+6      	; 0x266 <auto_toggle+0x8c>
+		{
+			lamp_off(2);
+ 260:	82 e0       	ldi	r24, 0x02	; 2
+ 262:	a6 df       	rcall	.-180    	; 0x1b0 <lamp_off>
+ 264:	02 c0       	rjmp	.+4      	; 0x26a <auto_toggle+0x90>
+		}
+		else
+		{
+			lamp_on(2);
+ 266:	82 e0       	ldi	r24, 0x02	; 2
+ 268:	9b df       	rcall	.-202    	; 0x1a0 <lamp_on>
+		}
+	}	
+}
+ 26a:	1f 91       	pop	r17
+ 26c:	08 95       	ret
+
+0000026e <timer0_start>:
+void timer0_start()									//////////// for auto button debounce
+{
+	TCNT0 = 0;
+ 26e:	12 be       	out	0x32, r1	; 50
+	TCCR0 |= 1<<CS00 | 1<<CS02;
+ 270:	83 b7       	in	r24, 0x33	; 51
+ 272:	85 60       	ori	r24, 0x05	; 5
+ 274:	83 bf       	out	0x33, r24	; 51
+	auto_button_can_action=0;
+ 276:	10 92 32 02 	sts	0x0232, r1
+}
+ 27a:	08 95       	ret
+
+0000027c <timer0_stop>:
+void timer0_stop()
+{
+	TCCR0 &= ~(1<<CS00 | 1<<CS02);
+ 27c:	83 b7       	in	r24, 0x33	; 51
+ 27e:	8a 7f       	andi	r24, 0xFA	; 250
+ 280:	83 bf       	out	0x33, r24	; 51
+	auto_button_can_action=1;
+ 282:	81 e0       	ldi	r24, 0x01	; 1
+ 284:	80 93 32 02 	sts	0x0232, r24
+}
+ 288:	08 95       	ret
+
+0000028a <timer1_on>:
+void timer1_on()									//////////// for lamp on off timer
+{
+	TCCR1B |= 1<<CS10 | 1<<CS12;  // clkI/O/1024 (From prescaler)
+ 28a:	8e b5       	in	r24, 0x2e	; 46
+ 28c:	85 60       	ori	r24, 0x05	; 5
+ 28e:	8e bd       	out	0x2e, r24	; 46
+}
+ 290:	08 95       	ret
+
+00000292 <timer1_off>:
+void timer1_off()
+{
+	TCCR1B &= ~(1<<CS10 | 1<<CS11 | 1<<CS12);
+ 292:	8e b5       	in	r24, 0x2e	; 46
+ 294:	88 7f       	andi	r24, 0xF8	; 248
+ 296:	8e bd       	out	0x2e, r24	; 46
+	room.lamp_on_off_timer_min=0;
+ 298:	10 92 e9 01 	sts	0x01E9, r1
+ 29c:	10 92 e8 01 	sts	0x01E8, r1
+	timer1_count=0;
+ 2a0:	10 92 f4 01 	sts	0x01F4, r1
+		
+}	
+ 2a4:	08 95       	ret
+
+000002a6 <time_end>:
+void time_end()
+{
+	if(room.timer_finish_lamp_on_or_off)	
+ 2a6:	80 91 ea 01 	lds	r24, 0x01EA
+ 2aa:	88 23       	and	r24, r24
+ 2ac:	81 f0       	breq	.+32     	; 0x2ce <time_end+0x28>
+	{
+		if (room.timer_finish_lamp_1_or_2)
+ 2ae:	80 91 eb 01 	lds	r24, 0x01EB
+ 2b2:	88 23       	and	r24, r24
+ 2b4:	31 f0       	breq	.+12     	; 0x2c2 <time_end+0x1c>
+		{
+			lamp_on(1);
+ 2b6:	81 e0       	ldi	r24, 0x01	; 1
+ 2b8:	73 df       	rcall	.-282    	; 0x1a0 <lamp_on>
+			room.top_lamp_on_with_mobile_command=1;
+ 2ba:	81 e0       	ldi	r24, 0x01	; 1
+ 2bc:	80 93 ee 01 	sts	0x01EE, r24
+ 2c0:	08 95       	ret
+		}
+		else
+		{
+			lamp_on(2);
+ 2c2:	82 e0       	ldi	r24, 0x02	; 2
+ 2c4:	6d df       	rcall	.-294    	; 0x1a0 <lamp_on>
+			room.side_lamp_on_with_mobile_command=1;
+ 2c6:	81 e0       	ldi	r24, 0x01	; 1
+ 2c8:	80 93 ef 01 	sts	0x01EF, r24
+ 2cc:	08 95       	ret
+		}
+		
+	}
+	else
+	{
+		if (room.timer_finish_lamp_1_or_2)
+ 2ce:	80 91 eb 01 	lds	r24, 0x01EB
+ 2d2:	88 23       	and	r24, r24
+ 2d4:	29 f0       	breq	.+10     	; 0x2e0 <time_end+0x3a>
+		{
+			lamp_off(1);
+ 2d6:	81 e0       	ldi	r24, 0x01	; 1
+ 2d8:	6b df       	rcall	.-298    	; 0x1b0 <lamp_off>
+			room.top_lamp_on_with_mobile_command=0;
+ 2da:	10 92 ee 01 	sts	0x01EE, r1
+ 2de:	08 95       	ret
+		}
+		else
+		{
+			lamp_off(2);
+ 2e0:	82 e0       	ldi	r24, 0x02	; 2
+ 2e2:	66 df       	rcall	.-308    	; 0x1b0 <lamp_off>
+			room.side_lamp_on_with_mobile_command=0;
+ 2e4:	10 92 ef 01 	sts	0x01EF, r1
+ 2e8:	08 95       	ret
+
+000002ea <timer_enable>:
+	}
+}
+void timer_enable()							//////////// i:shomareye avvalin makane ragham
+{
+	int i=0;
+	timer1_count = 0;
+ 2ea:	10 92 f4 01 	sts	0x01F4, r1
+	room.lamp_on_off_timer_min=0;
+	while(!((buffer[i] <= 57) && (buffer[i] >= 48)))
+ 2ee:	80 91 14 02 	lds	r24, 0x0214
+ 2f2:	80 53       	subi	r24, 0x30	; 48
+ 2f4:	8a 30       	cpi	r24, 0x0A	; 10
+ 2f6:	58 f0       	brcs	.+22     	; 0x30e <timer_enable+0x24>
+ 2f8:	e5 e1       	ldi	r30, 0x15	; 21
+ 2fa:	f2 e0       	ldi	r31, 0x02	; 2
+		}
+	}
+}
+void timer_enable()							//////////// i:shomareye avvalin makane ragham
+{
+	int i=0;
+ 2fc:	20 e0       	ldi	r18, 0x00	; 0
+ 2fe:	30 e0       	ldi	r19, 0x00	; 0
+	timer1_count = 0;
+	room.lamp_on_off_timer_min=0;
+	while(!((buffer[i] <= 57) && (buffer[i] >= 48)))
+	{
+		i++;
+ 300:	2f 5f       	subi	r18, 0xFF	; 255
+ 302:	3f 4f       	sbci	r19, 0xFF	; 255
+void timer_enable()							//////////// i:shomareye avvalin makane ragham
+{
+	int i=0;
+	timer1_count = 0;
+	room.lamp_on_off_timer_min=0;
+	while(!((buffer[i] <= 57) && (buffer[i] >= 48)))
+ 304:	81 91       	ld	r24, Z+
+ 306:	80 53       	subi	r24, 0x30	; 48
+ 308:	8a 30       	cpi	r24, 0x0A	; 10
+ 30a:	d0 f7       	brcc	.-12     	; 0x300 <timer_enable+0x16>
+ 30c:	02 c0       	rjmp	.+4      	; 0x312 <timer_enable+0x28>
+		}
+	}
+}
+void timer_enable()							//////////// i:shomareye avvalin makane ragham
+{
+	int i=0;
+ 30e:	20 e0       	ldi	r18, 0x00	; 0
+ 310:	30 e0       	ldi	r19, 0x00	; 0
+	room.lamp_on_off_timer_min=0;
+	while(!((buffer[i] <= 57) && (buffer[i] >= 48)))
+	{
+		i++;
+	}
+	while((buffer[i] <= 57) && (buffer[i] >= 48))
+ 312:	f9 01       	movw	r30, r18
+ 314:	ec 5e       	subi	r30, 0xEC	; 236
+ 316:	fd 4f       	sbci	r31, 0xFD	; 253
+ 318:	60 81       	ld	r22, Z
+			lamp_off(2);
+			room.side_lamp_on_with_mobile_command=0;
+		}
+	}
+}
+void timer_enable()							//////////// i:shomareye avvalin makane ragham
+ 31a:	f9 01       	movw	r30, r18
+ 31c:	eb 5e       	subi	r30, 0xEB	; 235
+ 31e:	fd 4f       	sbci	r31, 0xFD	; 253
+ 320:	80 e0       	ldi	r24, 0x00	; 0
+ 322:	90 e0       	ldi	r25, 0x00	; 0
+	{
+		i++;
+	}
+	while((buffer[i] <= 57) && (buffer[i] >= 48))
+	{
+		room.lamp_on_off_timer_min = 10*room.lamp_on_off_timer_min;
+ 324:	ac 01       	movw	r20, r24
+ 326:	44 0f       	add	r20, r20
+ 328:	55 1f       	adc	r21, r21
+ 32a:	9c 01       	movw	r18, r24
+ 32c:	22 0f       	add	r18, r18
+ 32e:	33 1f       	adc	r19, r19
+ 330:	22 0f       	add	r18, r18
+ 332:	33 1f       	adc	r19, r19
+ 334:	22 0f       	add	r18, r18
+ 336:	33 1f       	adc	r19, r19
+ 338:	24 0f       	add	r18, r20
+ 33a:	35 1f       	adc	r19, r21
+		room.lamp_on_off_timer_min += buffer[i]-48;
+ 33c:	86 2f       	mov	r24, r22
+ 33e:	90 e0       	ldi	r25, 0x00	; 0
+ 340:	c0 97       	sbiw	r24, 0x30	; 48
+ 342:	82 0f       	add	r24, r18
+ 344:	93 1f       	adc	r25, r19
+	room.lamp_on_off_timer_min=0;
+	while(!((buffer[i] <= 57) && (buffer[i] >= 48)))
+	{
+		i++;
+	}
+	while((buffer[i] <= 57) && (buffer[i] >= 48))
+ 346:	61 91       	ld	r22, Z+
+ 348:	26 2f       	mov	r18, r22
+ 34a:	20 53       	subi	r18, 0x30	; 48
+ 34c:	2a 30       	cpi	r18, 0x0A	; 10
+ 34e:	50 f3       	brcs	.-44     	; 0x324 <timer_enable+0x3a>
+ 350:	90 93 e9 01 	sts	0x01E9, r25
+ 354:	80 93 e8 01 	sts	0x01E8, r24
+		room.lamp_on_off_timer_min = 10*room.lamp_on_off_timer_min;
+		room.lamp_on_off_timer_min += buffer[i]-48;
+		i++;
+	}
+	//////////////////////////////
+	TCNT1H = 0X1C;
+ 358:	8c e1       	ldi	r24, 0x1C	; 28
+ 35a:	8d bd       	out	0x2d, r24	; 45
+	TCNT1L = 0XC0;
+ 35c:	80 ec       	ldi	r24, 0xC0	; 192
+ 35e:	8c bd       	out	0x2c, r24	; 44
+	buffer_wash();
+ 360:	7e de       	rcall	.-772    	; 0x5e <buffer_wash>
+	timer1_on();
+ 362:	93 df       	rcall	.-218    	; 0x28a <timer1_on>
+}
+ 364:	08 95       	ret
+
+00000366 <string_compare>:
+		}
+		buffer_wash();
+	}
+}
+int string_compare(char *buff , char *string )
+{
+ 366:	ef 92       	push	r14
+ 368:	ff 92       	push	r15
+ 36a:	0f 93       	push	r16
+ 36c:	1f 93       	push	r17
+ 36e:	cf 93       	push	r28
+ 370:	df 93       	push	r29
+	char i=0, j=0, k=0;
+	
+	check_again:
+	while((*(buff+i) != *(string)) && (i<30))
+ 372:	eb 01       	movw	r28, r22
+ 374:	f9 90       	ld	r15, Y+
+ 376:	21 e0       	ldi	r18, 0x01	; 1
+ 378:	40 e0       	ldi	r20, 0x00	; 0
+ 37a:	50 e0       	ldi	r21, 0x00	; 0
+			timer1_off();	
+		}
+		buffer_wash();
+	}
+}
+int string_compare(char *buff , char *string )
+ 37c:	ee 24       	eor	r14, r14
+ 37e:	03 c0       	rjmp	.+6      	; 0x386 <string_compare+0x20>
+{
+	char i=0, j=0, k=0;
+	
+	check_again:
+	while((*(buff+i) != *(string)) && (i<30))
+ 380:	4f 5f       	subi	r20, 0xFF	; 255
+ 382:	5f 4f       	sbci	r21, 0xFF	; 255
+ 384:	2f 5f       	subi	r18, 0xFF	; 255
+ 386:	34 2f       	mov	r19, r20
+ 388:	fc 01       	movw	r30, r24
+ 38a:	e4 0f       	add	r30, r20
+ 38c:	f1 1d       	adc	r31, r1
+ 38e:	e0 81       	ld	r30, Z
+ 390:	ef 15       	cp	r30, r15
+ 392:	19 f0       	breq	.+6      	; 0x39a <string_compare+0x34>
+ 394:	4e 31       	cpi	r20, 0x1E	; 30
+ 396:	a0 f3       	brcs	.-24     	; 0x380 <string_compare+0x1a>
+ 398:	2b c0       	rjmp	.+86     	; 0x3f0 <string_compare+0x8a>
+	{
+		i++;
+	}
+	k=i+1;
+	while ((i<30) && (*(string+j) != '\0'))
+ 39a:	4e 31       	cpi	r20, 0x1E	; 30
+ 39c:	98 f4       	brcc	.+38     	; 0x3c4 <string_compare+0x5e>
+ 39e:	ff 20       	and	r15, r15
+ 3a0:	c1 f0       	breq	.+48     	; 0x3d2 <string_compare+0x6c>
+			timer1_off();	
+		}
+		buffer_wash();
+	}
+}
+int string_compare(char *buff , char *string )
+ 3a2:	fe 01       	movw	r30, r28
+ 3a4:	0e 2d       	mov	r16, r14
+ 3a6:	06 c0       	rjmp	.+12     	; 0x3b4 <string_compare+0x4e>
+		i++;
+	}
+	k=i+1;
+	while ((i<30) && (*(string+j) != '\0'))
+	{
+		if(*(buff+i) != *(string+j))
+ 3a8:	dc 01       	movw	r26, r24
+ 3aa:	a3 0f       	add	r26, r19
+ 3ac:	b1 1d       	adc	r27, r1
+ 3ae:	ac 91       	ld	r26, X
+ 3b0:	1a 17       	cp	r17, r26
+ 3b2:	31 f7       	brne	.-52     	; 0x380 <string_compare+0x1a>
+		{
+			i=k;
+			j=0;
+			goto check_again;
+		}
+		i++;
+ 3b4:	3f 5f       	subi	r19, 0xFF	; 255
+		j++;
+ 3b6:	0f 5f       	subi	r16, 0xFF	; 255
+	while((*(buff+i) != *(string)) && (i<30))
+	{
+		i++;
+	}
+	k=i+1;
+	while ((i<30) && (*(string+j) != '\0'))
+ 3b8:	3e 31       	cpi	r19, 0x1E	; 30
+ 3ba:	28 f4       	brcc	.+10     	; 0x3c6 <string_compare+0x60>
+ 3bc:	11 91       	ld	r17, Z+
+ 3be:	11 23       	and	r17, r17
+ 3c0:	99 f7       	brne	.-26     	; 0x3a8 <string_compare+0x42>
+ 3c2:	07 c0       	rjmp	.+14     	; 0x3d2 <string_compare+0x6c>
+ 3c4:	00 e0       	ldi	r16, 0x00	; 0
+			goto check_again;
+		}
+		i++;
+		j++;
+	}
+	if(*(string+j) == '\0')		return k-1;
+ 3c6:	60 0f       	add	r22, r16
+ 3c8:	71 1d       	adc	r23, r1
+ 3ca:	fb 01       	movw	r30, r22
+ 3cc:	80 81       	ld	r24, Z
+ 3ce:	88 23       	and	r24, r24
+ 3d0:	21 f4       	brne	.+8      	; 0x3da <string_compare+0x74>
+ 3d2:	30 e0       	ldi	r19, 0x00	; 0
+ 3d4:	21 50       	subi	r18, 0x01	; 1
+ 3d6:	30 40       	sbci	r19, 0x00	; 0
+ 3d8:	02 c0       	rjmp	.+4      	; 0x3de <string_compare+0x78>
+	else						return -1;
+ 3da:	2f ef       	ldi	r18, 0xFF	; 255
+ 3dc:	3f ef       	ldi	r19, 0xFF	; 255
+}
+ 3de:	82 2f       	mov	r24, r18
+ 3e0:	93 2f       	mov	r25, r19
+ 3e2:	df 91       	pop	r29
+ 3e4:	cf 91       	pop	r28
+ 3e6:	1f 91       	pop	r17
+ 3e8:	0f 91       	pop	r16
+ 3ea:	ff 90       	pop	r15
+ 3ec:	ef 90       	pop	r14
+ 3ee:	08 95       	ret
+	check_again:
+	while((*(buff+i) != *(string)) && (i<30))
+	{
+		i++;
+	}
+	k=i+1;
+ 3f0:	24 2f       	mov	r18, r20
+ 3f2:	2f 5f       	subi	r18, 0xFF	; 255
+ 3f4:	00 e0       	ldi	r16, 0x00	; 0
+ 3f6:	e7 cf       	rjmp	.-50     	; 0x3c6 <string_compare+0x60>
+
+000003f8 <rx_operation>:
+	TCNT1L = 0XC0;
+	buffer_wash();
+	timer1_on();
+}
+void rx_operation()
+{
+ 3f8:	0f 93       	push	r16
+ 3fa:	1f 93       	push	r17
+ 3fc:	cf 93       	push	r28
+ 3fe:	df 93       	push	r29
+	if (room.have_wifi_module)
+ 400:	80 91 e5 01 	lds	r24, 0x01E5
+ 404:	88 23       	and	r24, r24
+ 406:	c1 f1       	breq	.+112    	; 0x478 <__stack+0x19>
+	{
+		if (/*(string_compare(buffer,"ready")>-1) |*/ (string_compare(buffer,"CHECK")>-1))
+ 408:	84 e1       	ldi	r24, 0x14	; 20
+ 40a:	92 e0       	ldi	r25, 0x02	; 2
+ 40c:	68 e0       	ldi	r22, 0x08	; 8
+ 40e:	71 e0       	ldi	r23, 0x01	; 1
+ 410:	aa df       	rcall	.-172    	; 0x366 <string_compare>
+ 412:	99 23       	and	r25, r25
+ 414:	1c f0       	brlt	.+6      	; 0x41c <rx_operation+0x24>
+		{
+			esp_initialize(0);
+ 416:	80 e0       	ldi	r24, 0x00	; 0
+ 418:	2b de       	rcall	.-938    	; 0x70 <esp_initialize>
+			buffer_wash();
+ 41a:	21 de       	rcall	.-958    	; 0x5e <buffer_wash>
+		}
+		if ((string_compare(buffer,"OK")>-1) | (string_compare(buffer,"Ok")>-1) | (string_compare(buffer,"ok")>-1))
+ 41c:	c4 e1       	ldi	r28, 0x14	; 20
+ 41e:	d2 e0       	ldi	r29, 0x02	; 2
+ 420:	ce 01       	movw	r24, r28
+ 422:	6e e0       	ldi	r22, 0x0E	; 14
+ 424:	71 e0       	ldi	r23, 0x01	; 1
+ 426:	9f df       	rcall	.-194    	; 0x366 <string_compare>
+ 428:	19 2f       	mov	r17, r25
+ 42a:	ce 01       	movw	r24, r28
+ 42c:	61 e1       	ldi	r22, 0x11	; 17
+ 42e:	71 e0       	ldi	r23, 0x01	; 1
+ 430:	9a df       	rcall	.-204    	; 0x366 <string_compare>
+ 432:	09 2f       	mov	r16, r25
+ 434:	ce 01       	movw	r24, r28
+ 436:	64 e1       	ldi	r22, 0x14	; 20
+ 438:	71 e0       	ldi	r23, 0x01	; 1
+ 43a:	95 df       	rcall	.-214    	; 0x366 <string_compare>
+ 43c:	20 2f       	mov	r18, r16
+ 43e:	21 23       	and	r18, r17
+ 440:	20 95       	com	r18
+ 442:	22 1f       	adc	r18, r18
+ 444:	22 27       	eor	r18, r18
+ 446:	22 1f       	adc	r18, r18
+ 448:	30 e0       	ldi	r19, 0x00	; 0
+ 44a:	89 2f       	mov	r24, r25
+ 44c:	80 95       	com	r24
+ 44e:	88 1f       	adc	r24, r24
+ 450:	88 27       	eor	r24, r24
+ 452:	88 1f       	adc	r24, r24
+ 454:	90 e0       	ldi	r25, 0x00	; 0
+ 456:	82 2b       	or	r24, r18
+ 458:	93 2b       	or	r25, r19
+ 45a:	00 97       	sbiw	r24, 0x00	; 0
+ 45c:	19 f0       	breq	.+6      	; 0x464 <__stack+0x5>
+		{
+			esp_initialize(1);
+ 45e:	81 e0       	ldi	r24, 0x01	; 1
+ 460:	07 de       	rcall	.-1010   	; 0x70 <esp_initialize>
+			buffer_wash();
+ 462:	fd dd       	rcall	.-1030   	; 0x5e <buffer_wash>
+		}
+		if (string_compare(buffer,"ERROR")>-1)
+ 464:	84 e1       	ldi	r24, 0x14	; 20
+ 466:	92 e0       	ldi	r25, 0x02	; 2
+ 468:	67 e1       	ldi	r22, 0x17	; 23
+ 46a:	71 e0       	ldi	r23, 0x01	; 1
+ 46c:	7c df       	rcall	.-264    	; 0x366 <string_compare>
+ 46e:	99 23       	and	r25, r25
+ 470:	1c f0       	brlt	.+6      	; 0x478 <__stack+0x19>
+		{
+			esp_initialize(2);
+ 472:	82 e0       	ldi	r24, 0x02	; 2
+ 474:	fd dd       	rcall	.-1030   	; 0x70 <esp_initialize>
+			buffer_wash();
+ 476:	f3 dd       	rcall	.-1050   	; 0x5e <buffer_wash>
+		}
+	}
+	if (string_compare(buffer , room.name)>-1)
+ 478:	60 91 dd 01 	lds	r22, 0x01DD
+ 47c:	70 91 de 01 	lds	r23, 0x01DE
+ 480:	84 e1       	ldi	r24, 0x14	; 20
+ 482:	92 e0       	ldi	r25, 0x02	; 2
+ 484:	70 df       	rcall	.-288    	; 0x366 <string_compare>
+ 486:	99 23       	and	r25, r25
+ 488:	0c f4       	brge	.+2      	; 0x48c <__stack+0x2d>
+ 48a:	9e c0       	rjmp	.+316    	; 0x5c8 <__stack+0x169>
+	{
+		
+		if (string_compare(buffer,"turn on top") >-1)		
+ 48c:	84 e1       	ldi	r24, 0x14	; 20
+ 48e:	92 e0       	ldi	r25, 0x02	; 2
+ 490:	6d e1       	ldi	r22, 0x1D	; 29
+ 492:	71 e0       	ldi	r23, 0x01	; 1
+ 494:	68 df       	rcall	.-304    	; 0x366 <string_compare>
+ 496:	99 23       	and	r25, r25
+ 498:	2c f0       	brlt	.+10     	; 0x4a4 <__stack+0x45>
+		{
+			lamp_on(1);
+ 49a:	81 e0       	ldi	r24, 0x01	; 1
+ 49c:	81 de       	rcall	.-766    	; 0x1a0 <lamp_on>
+			room.top_lamp_on_with_mobile_command=1;
+ 49e:	81 e0       	ldi	r24, 0x01	; 1
+ 4a0:	80 93 ee 01 	sts	0x01EE, r24
+		}		
+		if (string_compare(buffer,"turn on side") >-1)		
+ 4a4:	84 e1       	ldi	r24, 0x14	; 20
+ 4a6:	92 e0       	ldi	r25, 0x02	; 2
+ 4a8:	69 e2       	ldi	r22, 0x29	; 41
+ 4aa:	71 e0       	ldi	r23, 0x01	; 1
+ 4ac:	5c df       	rcall	.-328    	; 0x366 <string_compare>
+ 4ae:	99 23       	and	r25, r25
+ 4b0:	2c f0       	brlt	.+10     	; 0x4bc <__stack+0x5d>
+		{
+			lamp_on(2);
+ 4b2:	82 e0       	ldi	r24, 0x02	; 2
+ 4b4:	75 de       	rcall	.-790    	; 0x1a0 <lamp_on>
+			room.side_lamp_on_with_mobile_command=1;
+ 4b6:	81 e0       	ldi	r24, 0x01	; 1
+ 4b8:	80 93 ef 01 	sts	0x01EF, r24
+		}		
+		if (string_compare(buffer,"turn off top") >-1)		
+ 4bc:	84 e1       	ldi	r24, 0x14	; 20
+ 4be:	92 e0       	ldi	r25, 0x02	; 2
+ 4c0:	66 e3       	ldi	r22, 0x36	; 54
+ 4c2:	71 e0       	ldi	r23, 0x01	; 1
+ 4c4:	50 df       	rcall	.-352    	; 0x366 <string_compare>
+ 4c6:	99 23       	and	r25, r25
+ 4c8:	24 f0       	brlt	.+8      	; 0x4d2 <__stack+0x73>
+		{
+			lamp_off(1);
+ 4ca:	81 e0       	ldi	r24, 0x01	; 1
+ 4cc:	71 de       	rcall	.-798    	; 0x1b0 <lamp_off>
+			room.top_lamp_on_with_mobile_command=0;
+ 4ce:	10 92 ee 01 	sts	0x01EE, r1
+		}
+		if (string_compare(buffer,"turn off side") >-1)		
+ 4d2:	84 e1       	ldi	r24, 0x14	; 20
+ 4d4:	92 e0       	ldi	r25, 0x02	; 2
+ 4d6:	63 e4       	ldi	r22, 0x43	; 67
+ 4d8:	71 e0       	ldi	r23, 0x01	; 1
+ 4da:	45 df       	rcall	.-374    	; 0x366 <string_compare>
+ 4dc:	99 23       	and	r25, r25
+ 4de:	24 f0       	brlt	.+8      	; 0x4e8 <__stack+0x89>
+		{
+			lamp_off(2);
+ 4e0:	82 e0       	ldi	r24, 0x02	; 2
+ 4e2:	66 de       	rcall	.-820    	; 0x1b0 <lamp_off>
+			room.side_lamp_on_with_mobile_command=0;
+ 4e4:	10 92 ef 01 	sts	0x01EF, r1
+		}
+		if (string_compare(buffer,"auto enable top") >-1)
+ 4e8:	84 e1       	ldi	r24, 0x14	; 20
+ 4ea:	92 e0       	ldi	r25, 0x02	; 2
+ 4ec:	61 e5       	ldi	r22, 0x51	; 81
+ 4ee:	71 e0       	ldi	r23, 0x01	; 1
+ 4f0:	3a df       	rcall	.-396    	; 0x366 <string_compare>
+ 4f2:	99 23       	and	r25, r25
+ 4f4:	34 f0       	brlt	.+12     	; 0x502 <__stack+0xa3>
+		{
+			if (!(room.lamp1_in_auto_mode))	auto_toggle(1);
+ 4f6:	80 91 e1 01 	lds	r24, 0x01E1
+ 4fa:	88 23       	and	r24, r24
+ 4fc:	11 f4       	brne	.+4      	; 0x502 <__stack+0xa3>
+ 4fe:	81 e0       	ldi	r24, 0x01	; 1
+ 500:	6c de       	rcall	.-808    	; 0x1da <auto_toggle>
+		}
+		if (string_compare(buffer,"auto enable side") >-1)
+ 502:	84 e1       	ldi	r24, 0x14	; 20
+ 504:	92 e0       	ldi	r25, 0x02	; 2
+ 506:	61 e6       	ldi	r22, 0x61	; 97
+ 508:	71 e0       	ldi	r23, 0x01	; 1
+ 50a:	2d df       	rcall	.-422    	; 0x366 <string_compare>
+ 50c:	99 23       	and	r25, r25
+ 50e:	34 f0       	brlt	.+12     	; 0x51c <__stack+0xbd>
+		{
+			if (!(room.lamp2_in_auto_mode))	auto_toggle(2);
+ 510:	80 91 e2 01 	lds	r24, 0x01E2
+ 514:	88 23       	and	r24, r24
+ 516:	11 f4       	brne	.+4      	; 0x51c <__stack+0xbd>
+ 518:	82 e0       	ldi	r24, 0x02	; 2
+ 51a:	5f de       	rcall	.-834    	; 0x1da <auto_toggle>
+		}
+		if (string_compare(buffer,"auto disable top") >-1)
+ 51c:	84 e1       	ldi	r24, 0x14	; 20
+ 51e:	92 e0       	ldi	r25, 0x02	; 2
+ 520:	62 e7       	ldi	r22, 0x72	; 114
+ 522:	71 e0       	ldi	r23, 0x01	; 1
+ 524:	20 df       	rcall	.-448    	; 0x366 <string_compare>
+ 526:	99 23       	and	r25, r25
+ 528:	34 f0       	brlt	.+12     	; 0x536 <__stack+0xd7>
+		{
+			if (room.lamp1_in_auto_mode)	auto_toggle(1);
+ 52a:	80 91 e1 01 	lds	r24, 0x01E1
+ 52e:	88 23       	and	r24, r24
+ 530:	11 f0       	breq	.+4      	; 0x536 <__stack+0xd7>
+ 532:	81 e0       	ldi	r24, 0x01	; 1
+ 534:	52 de       	rcall	.-860    	; 0x1da <auto_toggle>
+		}
+		if (string_compare(buffer,"auto disable side") >-1)
+ 536:	84 e1       	ldi	r24, 0x14	; 20
+ 538:	92 e0       	ldi	r25, 0x02	; 2
+ 53a:	63 e8       	ldi	r22, 0x83	; 131
+ 53c:	71 e0       	ldi	r23, 0x01	; 1
+ 53e:	13 df       	rcall	.-474    	; 0x366 <string_compare>
+ 540:	99 23       	and	r25, r25
+ 542:	34 f0       	brlt	.+12     	; 0x550 <__stack+0xf1>
+		{
+			if (room.lamp2_in_auto_mode)	auto_toggle(2);
+ 544:	80 91 e2 01 	lds	r24, 0x01E2
+ 548:	88 23       	and	r24, r24
+ 54a:	11 f0       	breq	.+4      	; 0x550 <__stack+0xf1>
+ 54c:	82 e0       	ldi	r24, 0x02	; 2
+ 54e:	45 de       	rcall	.-886    	; 0x1da <auto_toggle>
+		}
+		if (string_compare(buffer,"timer on top") >-1)
+ 550:	84 e1       	ldi	r24, 0x14	; 20
+ 552:	92 e0       	ldi	r25, 0x02	; 2
+ 554:	65 e9       	ldi	r22, 0x95	; 149
+ 556:	71 e0       	ldi	r23, 0x01	; 1
+ 558:	06 df       	rcall	.-500    	; 0x366 <string_compare>
+ 55a:	99 23       	and	r25, r25
+ 55c:	34 f0       	brlt	.+12     	; 0x56a <__stack+0x10b>
+		{
+			timer_enable();
+ 55e:	c5 de       	rcall	.-630    	; 0x2ea <timer_enable>
+			room.timer_finish_lamp_on_or_off = 1;
+ 560:	81 e0       	ldi	r24, 0x01	; 1
+ 562:	80 93 ea 01 	sts	0x01EA, r24
+			room.timer_finish_lamp_1_or_2 = 1;
+ 566:	80 93 eb 01 	sts	0x01EB, r24
+		}
+		if (string_compare(buffer,"timer on side") >-1)
+ 56a:	84 e1       	ldi	r24, 0x14	; 20
+ 56c:	92 e0       	ldi	r25, 0x02	; 2
+ 56e:	62 ea       	ldi	r22, 0xA2	; 162
+ 570:	71 e0       	ldi	r23, 0x01	; 1
+ 572:	f9 de       	rcall	.-526    	; 0x366 <string_compare>
+ 574:	99 23       	and	r25, r25
+ 576:	34 f0       	brlt	.+12     	; 0x584 <__stack+0x125>
+		{
+			timer_enable();
+ 578:	b8 de       	rcall	.-656    	; 0x2ea <timer_enable>
+			room.timer_finish_lamp_on_or_off = 1;
+ 57a:	81 e0       	ldi	r24, 0x01	; 1
+ 57c:	80 93 ea 01 	sts	0x01EA, r24
+			room.timer_finish_lamp_1_or_2 = 0;
+ 580:	10 92 eb 01 	sts	0x01EB, r1
+		}
+		if (string_compare(buffer,"timer off top") >-1)
+ 584:	84 e1       	ldi	r24, 0x14	; 20
+ 586:	92 e0       	ldi	r25, 0x02	; 2
+ 588:	60 eb       	ldi	r22, 0xB0	; 176
+ 58a:	71 e0       	ldi	r23, 0x01	; 1
+ 58c:	ec de       	rcall	.-552    	; 0x366 <string_compare>
+ 58e:	99 23       	and	r25, r25
+ 590:	34 f0       	brlt	.+12     	; 0x59e <__stack+0x13f>
+		{
+			timer_enable();
+ 592:	ab de       	rcall	.-682    	; 0x2ea <timer_enable>
+			room.timer_finish_lamp_on_or_off = 0;
+ 594:	10 92 ea 01 	sts	0x01EA, r1
+			room.timer_finish_lamp_1_or_2 = 1;
+ 598:	81 e0       	ldi	r24, 0x01	; 1
+ 59a:	80 93 eb 01 	sts	0x01EB, r24
+		}
+		if (string_compare(buffer,"timer off side") >-1)
+ 59e:	84 e1       	ldi	r24, 0x14	; 20
+ 5a0:	92 e0       	ldi	r25, 0x02	; 2
+ 5a2:	6e eb       	ldi	r22, 0xBE	; 190
+ 5a4:	71 e0       	ldi	r23, 0x01	; 1
+ 5a6:	df de       	rcall	.-578    	; 0x366 <string_compare>
+ 5a8:	99 23       	and	r25, r25
+ 5aa:	2c f0       	brlt	.+10     	; 0x5b6 <__stack+0x157>
+		{
+			timer_enable();
+ 5ac:	9e de       	rcall	.-708    	; 0x2ea <timer_enable>
+			room.timer_finish_lamp_on_or_off = 0;
+ 5ae:	10 92 ea 01 	sts	0x01EA, r1
+			room.timer_finish_lamp_1_or_2 = 0;
+ 5b2:	10 92 eb 01 	sts	0x01EB, r1
+		}
+		if (string_compare(buffer,"timer disable") >-1)		
+ 5b6:	84 e1       	ldi	r24, 0x14	; 20
+ 5b8:	92 e0       	ldi	r25, 0x02	; 2
+ 5ba:	6d ec       	ldi	r22, 0xCD	; 205
+ 5bc:	71 e0       	ldi	r23, 0x01	; 1
+ 5be:	d3 de       	rcall	.-602    	; 0x366 <string_compare>
+ 5c0:	99 23       	and	r25, r25
+ 5c2:	0c f0       	brlt	.+2      	; 0x5c6 <__stack+0x167>
+		{
+			timer1_off();	
+ 5c4:	66 de       	rcall	.-820    	; 0x292 <timer1_off>
+		}
+		buffer_wash();
+ 5c6:	4b dd       	rcall	.-1386   	; 0x5e <buffer_wash>
+	}
+}
+ 5c8:	df 91       	pop	r29
+ 5ca:	cf 91       	pop	r28
+ 5cc:	1f 91       	pop	r17
+ 5ce:	0f 91       	pop	r16
+ 5d0:	08 95       	ret
+
+000005d2 <send>:
+		{
+			buffer[j]=0;
+		}
+}
+void send(char *p , char Enter_Selection)			//////////// 0-> char	1->No Enter	2->with Enter
+{
+ 5d2:	e8 2f       	mov	r30, r24
+ 5d4:	f9 2f       	mov	r31, r25
+	int i=0;
+	
+	do{
+		if(*(p+i) == '#')	*(p+i)='"';
+ 5d6:	92 e2       	ldi	r25, 0x22	; 34
+	for (int j=0;j<30 ; j++)
+		{
+			buffer[j]=0;
+		}
+}
+void send(char *p , char Enter_Selection)			//////////// 0-> char	1->No Enter	2->with Enter
+ 5d8:	df 01       	movw	r26, r30
+{
+	int i=0;
+	
+	do{
+		if(*(p+i) == '#')	*(p+i)='"';
+ 5da:	80 81       	ld	r24, Z
+ 5dc:	83 32       	cpi	r24, 0x23	; 35
+ 5de:	09 f4       	brne	.+2      	; 0x5e2 <send+0x10>
+ 5e0:	90 83       	st	Z, r25
+		while (!(UCSRA & (1<<UDRE)));
+ 5e2:	5d 9b       	sbis	0x0b, 5	; 11
+ 5e4:	fe cf       	rjmp	.-4      	; 0x5e2 <send+0x10>
+		UDR=*(p+i);
+ 5e6:	8c 91       	ld	r24, X
+ 5e8:	31 96       	adiw	r30, 0x01	; 1
+ 5ea:	8c b9       	out	0x0c, r24	; 12
+		i++;
+	}while ((*(p+i) != '\0')&&(Enter_Selection!=0));
+ 5ec:	80 81       	ld	r24, Z
+ 5ee:	88 23       	and	r24, r24
+ 5f0:	19 f0       	breq	.+6      	; 0x5f8 <send+0x26>
+ 5f2:	66 23       	and	r22, r22
+ 5f4:	89 f7       	brne	.-30     	; 0x5d8 <send+0x6>
+ 5f6:	08 95       	ret
+	if (Enter_Selection==2)
+ 5f8:	62 30       	cpi	r22, 0x02	; 2
+ 5fa:	41 f4       	brne	.+16     	; 0x60c <send+0x3a>
+	{
+		while (!(UCSRA & (1<<UDRE)));
+ 5fc:	5d 9b       	sbis	0x0b, 5	; 11
+ 5fe:	fe cf       	rjmp	.-4      	; 0x5fc <send+0x2a>
+ 		UDR=0x0D;
+ 600:	8d e0       	ldi	r24, 0x0D	; 13
+ 602:	8c b9       	out	0x0c, r24	; 12
+ 		while (!(UCSRA & (1<<UDRE)));
+ 604:	5d 9b       	sbis	0x0b, 5	; 11
+ 606:	fe cf       	rjmp	.-4      	; 0x604 <send+0x32>
+ 		UDR=0x0A;
+ 608:	8a e0       	ldi	r24, 0x0A	; 10
+ 60a:	8c b9       	out	0x0c, r24	; 12
+ 60c:	08 95       	ret
+
+0000060e <esp_command>:
+	}
+}	
+void esp_command(char *word)
+{
+	send(word,2);
+ 60e:	62 e0       	ldi	r22, 0x02	; 2
+ 610:	e0 df       	rcall	.-64     	; 0x5d2 <send>
+}
+ 612:	08 95       	ret
+
+00000614 <keys_check>:
+void keys_check()									//////////// dar timer over flow seda zade shavad kheyli behtar mishavad
+{
+	if (room.key1_is_disconnect)
+ 614:	80 91 e3 01 	lds	r24, 0x01E3
+ 618:	88 23       	and	r24, r24
+ 61a:	69 f0       	breq	.+26     	; 0x636 <keys_check+0x22>
+	{
+		if (!(Inside_Pin & (1<<First_key)))
+ 61c:	86 99       	sbic	0x10, 6	; 16
+ 61e:	19 c0       	rjmp	.+50     	; 0x652 <keys_check+0x3e>
+		{
+			room.key1_is_disconnect=0;
+ 620:	10 92 e3 01 	sts	0x01E3, r1
+			lamp_on(1);
+ 624:	81 e0       	ldi	r24, 0x01	; 1
+ 626:	bc dd       	rcall	.-1160   	; 0x1a0 <lamp_on>
+ 628:	8f ef       	ldi	r24, 0xFF	; 255
+ 62a:	9b e6       	ldi	r25, 0x6B	; 107
+ 62c:	01 97       	sbiw	r24, 0x01	; 1
+ 62e:	f1 f7       	brne	.-4      	; 0x62c <keys_check+0x18>
+ 630:	00 c0       	rjmp	.+0      	; 0x632 <keys_check+0x1e>
+ 632:	00 00       	nop
+ 634:	0e c0       	rjmp	.+28     	; 0x652 <keys_check+0x3e>
+			_delay_ms(10);
+		}
+	} 
+	else
+	{
+		if (Inside_Pin & (1<<First_key))
+ 636:	86 9b       	sbis	0x10, 6	; 16
+ 638:	0c c0       	rjmp	.+24     	; 0x652 <keys_check+0x3e>
+		{
+			room.key1_is_disconnect=1;
+ 63a:	81 e0       	ldi	r24, 0x01	; 1
+ 63c:	80 93 e3 01 	sts	0x01E3, r24
+			lamp_off(1);
+ 640:	b7 dd       	rcall	.-1170   	; 0x1b0 <lamp_off>
+			room.top_lamp_on_with_mobile_command=0;
+ 642:	10 92 ee 01 	sts	0x01EE, r1
+ 646:	8f ef       	ldi	r24, 0xFF	; 255
+ 648:	9b e6       	ldi	r25, 0x6B	; 107
+ 64a:	01 97       	sbiw	r24, 0x01	; 1
+ 64c:	f1 f7       	brne	.-4      	; 0x64a <keys_check+0x36>
+ 64e:	00 c0       	rjmp	.+0      	; 0x650 <keys_check+0x3c>
+ 650:	00 00       	nop
+			_delay_ms(10);
+		}
+	}
+	if (room.key2_is_disconnect)
+ 652:	80 91 e4 01 	lds	r24, 0x01E4
+ 656:	88 23       	and	r24, r24
+ 658:	69 f0       	breq	.+26     	; 0x674 <keys_check+0x60>
+	{
+		if (!(Inside_Pin & (1<<Second_Key)))
+ 65a:	87 99       	sbic	0x10, 7	; 16
+ 65c:	1a c0       	rjmp	.+52     	; 0x692 <keys_check+0x7e>
+		{
+			room.key2_is_disconnect=0;
+ 65e:	10 92 e4 01 	sts	0x01E4, r1
+			lamp_on(2);
+ 662:	82 e0       	ldi	r24, 0x02	; 2
+ 664:	9d dd       	rcall	.-1222   	; 0x1a0 <lamp_on>
+ 666:	8f ef       	ldi	r24, 0xFF	; 255
+ 668:	9b e6       	ldi	r25, 0x6B	; 107
+ 66a:	01 97       	sbiw	r24, 0x01	; 1
+ 66c:	f1 f7       	brne	.-4      	; 0x66a <keys_check+0x56>
+ 66e:	00 c0       	rjmp	.+0      	; 0x670 <keys_check+0x5c>
+ 670:	00 00       	nop
+ 672:	08 95       	ret
+			_delay_ms(10);
+		}
+	} 
+	else
+	{
+		if (Inside_Pin & (1<<Second_Key))
+ 674:	87 9b       	sbis	0x10, 7	; 16
+ 676:	0d c0       	rjmp	.+26     	; 0x692 <keys_check+0x7e>
+		{
+			room.key2_is_disconnect=1;
+ 678:	81 e0       	ldi	r24, 0x01	; 1
+ 67a:	80 93 e4 01 	sts	0x01E4, r24
+			lamp_off(2);
+ 67e:	82 e0       	ldi	r24, 0x02	; 2
+ 680:	97 dd       	rcall	.-1234   	; 0x1b0 <lamp_off>
+			room.side_lamp_on_with_mobile_command=0;
+ 682:	10 92 ef 01 	sts	0x01EF, r1
+ 686:	8f ef       	ldi	r24, 0xFF	; 255
+ 688:	9b e6       	ldi	r25, 0x6B	; 107
+ 68a:	01 97       	sbiw	r24, 0x01	; 1
+ 68c:	f1 f7       	brne	.-4      	; 0x68a <keys_check+0x76>
+ 68e:	00 c0       	rjmp	.+0      	; 0x690 <keys_check+0x7c>
+ 690:	00 00       	nop
+ 692:	08 95       	ret
+
+00000694 <auto_buttons_check>:
+		}
+	}
+}
+void auto_buttons_check()
+{
+	if (!(Inside_Pin & (1<<Auto_Enable_Button1)))
+ 694:	84 99       	sbic	0x10, 4	; 16
+ 696:	07 c0       	rjmp	.+14     	; 0x6a6 <auto_buttons_check+0x12>
+	{
+		if (auto_button_can_action)
+ 698:	80 91 32 02 	lds	r24, 0x0232
+ 69c:	88 23       	and	r24, r24
+ 69e:	19 f0       	breq	.+6      	; 0x6a6 <auto_buttons_check+0x12>
+		{
+			auto_toggle(1);
+ 6a0:	81 e0       	ldi	r24, 0x01	; 1
+ 6a2:	9b dd       	rcall	.-1226   	; 0x1da <auto_toggle>
+			timer0_start();
+ 6a4:	e4 dd       	rcall	.-1080   	; 0x26e <timer0_start>
+		}
+	}
+	if (!(Inside_Pin & (1<<Auto_Enable_Button2)))
+ 6a6:	85 99       	sbic	0x10, 5	; 16
+ 6a8:	07 c0       	rjmp	.+14     	; 0x6b8 <auto_buttons_check+0x24>
+	{
+		if (auto_button_can_action)
+ 6aa:	80 91 32 02 	lds	r24, 0x0232
+ 6ae:	88 23       	and	r24, r24
+ 6b0:	19 f0       	breq	.+6      	; 0x6b8 <auto_buttons_check+0x24>
+		{
+			auto_toggle(2);
+ 6b2:	82 e0       	ldi	r24, 0x02	; 2
+ 6b4:	92 dd       	rcall	.-1244   	; 0x1da <auto_toggle>
+			timer0_start();
+ 6b6:	db dd       	rcall	.-1098   	; 0x26e <timer0_start>
+ 6b8:	08 95       	ret
+
+000006ba <Light_Check>:
+		}
+	}
+}
+void Light_Check()				//0:Light Check							1:PIR Check
+{
+	ADMUX |= ((1<<MUX0) | (1<<ADLAR));												// Voltage Reference : AREF , Internally Vref turned off    and     data in ADCH
+ 6ba:	87 b1       	in	r24, 0x07	; 7
+ 6bc:	81 62       	ori	r24, 0x21	; 33
+ 6be:	87 b9       	out	0x07, r24	; 7
+	ADMUX &= ~((1<<REFS0) | (1<<REFS1) | (1<<MUX3) | (1<<MUX2) | (1<<MUX1));		// Signal Reference : ADC1(PINC1) , ADLAR = 1	
+ 6c0:	87 b1       	in	r24, 0x07	; 7
+ 6c2:	81 73       	andi	r24, 0x31	; 49
+ 6c4:	87 b9       	out	0x07, r24	; 7
+	ADCSRA |= ((1<<ADEN) | (1<<ADIE) | (1<<ADPS0));										// ADC enable and ADC interrupt enable
+ 6c6:	86 b1       	in	r24, 0x06	; 6
+ 6c8:	89 68       	ori	r24, 0x89	; 137
+ 6ca:	86 b9       	out	0x06, r24	; 6
+	ADCSRA &= ~((1<<ADFR) | (1<<ADPS2) | (1<<ADPS1));									// ADC free running mode = off and  division factor = 2
+ 6cc:	86 b1       	in	r24, 0x06	; 6
+ 6ce:	89 7d       	andi	r24, 0xD9	; 217
+ 6d0:	86 b9       	out	0x06, r24	; 6
+	ADCSRA |= 1<<ADSC;	
+ 6d2:	36 9a       	sbi	0x06, 6	; 6
+}
+ 6d4:	08 95       	ret
+
+000006d6 <Day_Night_ADC_Values_Read_From_EEPROM>:
+	// TODO
+	//day_night_adc_reference_value_eeprom = 10;
+	//day_night_adc_reference_tolerance_eeprom = 11;
+	//room.day_night_adc_reference_value = eeprom_read_byte(day_night_adc_reference_value_eeprom);
+	//room.day_night_adc_reference_tolerance = eeprom_read_byte(day_night_adc_reference_tolerance_eeprom);
+	room.day_night_adc_reference_value = 100;
+ 6d6:	84 e6       	ldi	r24, 0x64	; 100
+ 6d8:	80 93 df 01 	sts	0x01DF, r24
+	room.day_night_adc_reference_tolerance = 10;
+ 6dc:	8a e0       	ldi	r24, 0x0A	; 10
+ 6de:	80 93 e0 01 	sts	0x01E0, r24
+}
+ 6e2:	08 95       	ret
+
+000006e4 <Timer2_Start>:
+void Timer2_Start()                                  ////////////// baraye tashkhis dadane nabudane kasi dar otag
+{
+	TCNT2 = 0;
+ 6e4:	14 bc       	out	0x24, r1	; 36
+	TCCR2 |= (1<<CS20 | 1<<CS21 | 1<<CS22);	// clkI/O/1024 (From prescaler)
+ 6e6:	85 b5       	in	r24, 0x25	; 37
+ 6e8:	87 60       	ori	r24, 0x07	; 7
+ 6ea:	85 bd       	out	0x25, r24	; 37
+}
+ 6ec:	08 95       	ret
+
+000006ee <Timer2_Stop>:
+void Timer2_Stop()
+{
+	TCNT2 = 0;
+ 6ee:	14 bc       	out	0x24, r1	; 36
+	TCCR2 &= ~(1<<CS20 | 1<<CS21 | 1<<CS22);	// clkI/O/1024 (From prescaler)
+ 6f0:	85 b5       	in	r24, 0x25	; 37
+ 6f2:	88 7f       	andi	r24, 0xF8	; 248
+ 6f4:	85 bd       	out	0x25, r24	; 37
+	timer2_count=0;
+ 6f6:	10 92 33 02 	sts	0x0233, r1
+	timer2_second_counter=0;
+ 6fa:	10 92 34 02 	sts	0x0234, r1
+}
+ 6fe:	08 95       	ret
+
+00000700 <Timer2_time_end>:
+void Timer2_time_end()
+{
+	TCNT2 = 0;
+ 700:	14 bc       	out	0x24, r1	; 36
+	TCCR2 &= ~(1<<CS20 | 1<<CS21 | 1<<CS22);	// clkI/O/1024 (From prescaler)
+ 702:	85 b5       	in	r24, 0x25	; 37
+ 704:	88 7f       	andi	r24, 0xF8	; 248
+ 706:	85 bd       	out	0x25, r24	; 37
+	timer2_count=0;
+ 708:	10 92 33 02 	sts	0x0233, r1
+	timer2_second_counter=0;
+ 70c:	10 92 34 02 	sts	0x0234, r1
+	if (!(Inside_Pin & (1<<INT1_pir_motion)))
+ 710:	83 99       	sbic	0x10, 3	; 16
+ 712:	16 c0       	rjmp	.+44     	; 0x740 <Timer2_time_end+0x40>
+	{
+		// khuruj anjam shode
+		room.someone_in_room=0;
+ 714:	10 92 f0 01 	sts	0x01F0, r1
+		if (room.lamp1_in_auto_mode)
+ 718:	80 91 e1 01 	lds	r24, 0x01E1
+ 71c:	88 23       	and	r24, r24
+ 71e:	31 f0       	breq	.+12     	; 0x72c <Timer2_time_end+0x2c>
+		{
+			if (!(room.top_lamp_on_with_mobile_command))
+ 720:	80 91 ee 01 	lds	r24, 0x01EE
+ 724:	88 23       	and	r24, r24
+ 726:	11 f4       	brne	.+4      	; 0x72c <Timer2_time_end+0x2c>
+			{
+				lamp_off(1);
+ 728:	81 e0       	ldi	r24, 0x01	; 1
+ 72a:	42 dd       	rcall	.-1404   	; 0x1b0 <lamp_off>
+			}
+		}
+		if (room.lamp2_in_auto_mode)
+ 72c:	80 91 e2 01 	lds	r24, 0x01E2
+ 730:	88 23       	and	r24, r24
+ 732:	31 f0       	breq	.+12     	; 0x740 <Timer2_time_end+0x40>
+		{
+			if (!(room.side_lamp_on_with_mobile_command))
+ 734:	80 91 ef 01 	lds	r24, 0x01EF
+ 738:	88 23       	and	r24, r24
+ 73a:	11 f4       	brne	.+4      	; 0x740 <Timer2_time_end+0x40>
+			{
+				lamp_off(2);
+ 73c:	82 e0       	ldi	r24, 0x02	; 2
+ 73e:	38 dd       	rcall	.-1424   	; 0x1b0 <lamp_off>
+ 740:	08 95       	ret
+
+00000742 <main>:
+			}
+		}	
+	}
+}
+int main(void)
+{
+ 742:	1f 93       	push	r17
+ 744:	cf 93       	push	r28
+ 746:	df 93       	push	r29
+	room.need_for_rx_operation=0;
+ 748:	10 92 f1 01 	sts	0x01F1, r1
+	room.INT0_Pir_enter_exit_last_situation=1;					// dar startup system, har do module dar sathe mantegiye 1 mibashand
+ 74c:	11 e0       	ldi	r17, 0x01	; 1
+ 74e:	10 93 f3 01 	sts	0x01F3, r17
+	initialize();
+ 752:	dd dc       	rcall	.-1606   	; 0x10e <initialize>
+	sei();
+ 754:	78 94       	sei
+	Day_Night_ADC_Values_Read_From_EEPROM();
+ 756:	bf df       	rcall	.-130    	; 0x6d6 <Day_Night_ADC_Values_Read_From_EEPROM>
+	// TODO read tolerance_time_for_no_person_in_room from eeprom
+	room.top_lamp_on_with_mobile_command=0;
+ 758:	10 92 ee 01 	sts	0x01EE, r1
+	room.side_lamp_on_with_mobile_command=0;
+ 75c:	10 92 ef 01 	sts	0x01EF, r1
+	room.tolerance_time_for_no_person_in_room=30;
+ 760:	8e e1       	ldi	r24, 0x1E	; 30
+ 762:	80 93 ed 01 	sts	0x01ED, r24
+	room.someone_in_room=0;
+ 766:	10 92 f0 01 	sts	0x01F0, r1
+	room.Is_Dark=1;
+ 76a:	10 93 ec 01 	sts	0x01EC, r17
+	char counter=0;
+    while(1)
+    {
+		keys_check();
+ 76e:	52 df       	rcall	.-348    	; 0x614 <keys_check>
+		auto_buttons_check();
+ 770:	91 df       	rcall	.-222    	; 0x694 <auto_buttons_check>
+ 772:	8f ef       	ldi	r24, 0xFF	; 255
+ 774:	9b e6       	ldi	r25, 0x6B	; 107
+ 776:	01 97       	sbiw	r24, 0x01	; 1
+ 778:	f1 f7       	brne	.-4      	; 0x776 <main+0x34>
+ 77a:	00 c0       	rjmp	.+0      	; 0x77c <main+0x3a>
+ 77c:	00 00       	nop
+		if (counter==100)
+		{
+			counter=0;
+			Light_Check();
+		}
+		if (room.need_for_rx_operation)
+ 77e:	c1 ef       	ldi	r28, 0xF1	; 241
+ 780:	d1 e0       	ldi	r29, 0x01	; 1
+ 782:	0d c0       	rjmp	.+26     	; 0x79e <main+0x5c>
+	room.someone_in_room=0;
+	room.Is_Dark=1;
+	char counter=0;
+    while(1)
+    {
+		keys_check();
+ 784:	47 df       	rcall	.-370    	; 0x614 <keys_check>
+		auto_buttons_check();
+ 786:	86 df       	rcall	.-244    	; 0x694 <auto_buttons_check>
+ 788:	8f ef       	ldi	r24, 0xFF	; 255
+ 78a:	9b e6       	ldi	r25, 0x6B	; 107
+ 78c:	01 97       	sbiw	r24, 0x01	; 1
+ 78e:	f1 f7       	brne	.-4      	; 0x78c <main+0x4a>
+ 790:	00 c0       	rjmp	.+0      	; 0x792 <main+0x50>
+ 792:	00 00       	nop
+		_delay_ms(10);
+		counter++;
+ 794:	1f 5f       	subi	r17, 0xFF	; 255
+		if (counter==100)
+ 796:	14 36       	cpi	r17, 0x64	; 100
+ 798:	11 f4       	brne	.+4      	; 0x79e <main+0x5c>
+		{
+			counter=0;
+			Light_Check();
+ 79a:	8f df       	rcall	.-226    	; 0x6ba <Light_Check>
+		auto_buttons_check();
+		_delay_ms(10);
+		counter++;
+		if (counter==100)
+		{
+			counter=0;
+ 79c:	10 e0       	ldi	r17, 0x00	; 0
+			Light_Check();
+		}
+		if (room.need_for_rx_operation)
+ 79e:	88 81       	ld	r24, Y
+ 7a0:	88 23       	and	r24, r24
+ 7a2:	81 f3       	breq	.-32     	; 0x784 <main+0x42>
+		{
+			room.need_for_rx_operation=0;
+ 7a4:	18 82       	st	Y, r1
+			rx_operation();
+ 7a6:	28 de       	rcall	.-944    	; 0x3f8 <rx_operation>
+			sp=0;
+ 7a8:	10 92 36 02 	sts	0x0236, r1
+ 7ac:	eb cf       	rjmp	.-42     	; 0x784 <main+0x42>
+
+000007ae <__vector_9>:
+		}
+    }
+}
+
+ISR(TIMER0_OVF_vect)
+{
+ 7ae:	1f 92       	push	r1
+ 7b0:	0f 92       	push	r0
+ 7b2:	0f b6       	in	r0, 0x3f	; 63
+ 7b4:	0f 92       	push	r0
+ 7b6:	11 24       	eor	r1, r1
+ 7b8:	2f 93       	push	r18
+ 7ba:	3f 93       	push	r19
+ 7bc:	4f 93       	push	r20
+ 7be:	5f 93       	push	r21
+ 7c0:	6f 93       	push	r22
+ 7c2:	7f 93       	push	r23
+ 7c4:	8f 93       	push	r24
+ 7c6:	9f 93       	push	r25
+ 7c8:	af 93       	push	r26
+ 7ca:	bf 93       	push	r27
+ 7cc:	ef 93       	push	r30
+ 7ce:	ff 93       	push	r31
+	timer0_count++;
+ 7d0:	80 91 35 02 	lds	r24, 0x0235
+ 7d4:	8f 5f       	subi	r24, 0xFF	; 255
+ 7d6:	80 93 35 02 	sts	0x0235, r24
+	if(timer0_count == 25)	// gablan 85 bud
+ 7da:	89 31       	cpi	r24, 0x19	; 25
+ 7dc:	19 f4       	brne	.+6      	; 0x7e4 <__vector_9+0x36>
+	{
+		timer0_count=0;
+ 7de:	10 92 35 02 	sts	0x0235, r1
+		timer0_stop();
+ 7e2:	4c dd       	rcall	.-1384   	; 0x27c <timer0_stop>
+	}
+}
+ 7e4:	ff 91       	pop	r31
+ 7e6:	ef 91       	pop	r30
+ 7e8:	bf 91       	pop	r27
+ 7ea:	af 91       	pop	r26
+ 7ec:	9f 91       	pop	r25
+ 7ee:	8f 91       	pop	r24
+ 7f0:	7f 91       	pop	r23
+ 7f2:	6f 91       	pop	r22
+ 7f4:	5f 91       	pop	r21
+ 7f6:	4f 91       	pop	r20
+ 7f8:	3f 91       	pop	r19
+ 7fa:	2f 91       	pop	r18
+ 7fc:	0f 90       	pop	r0
+ 7fe:	0f be       	out	0x3f, r0	; 63
+ 800:	0f 90       	pop	r0
+ 802:	1f 90       	pop	r1
+ 804:	18 95       	reti
+
+00000806 <__vector_8>:
+ISR(TIMER1_OVF_vect)
+{
+ 806:	1f 92       	push	r1
+ 808:	0f 92       	push	r0
+ 80a:	0f b6       	in	r0, 0x3f	; 63
+ 80c:	0f 92       	push	r0
+ 80e:	11 24       	eor	r1, r1
+ 810:	2f 93       	push	r18
+ 812:	3f 93       	push	r19
+ 814:	4f 93       	push	r20
+ 816:	5f 93       	push	r21
+ 818:	6f 93       	push	r22
+ 81a:	7f 93       	push	r23
+ 81c:	8f 93       	push	r24
+ 81e:	9f 93       	push	r25
+ 820:	af 93       	push	r26
+ 822:	bf 93       	push	r27
+ 824:	ef 93       	push	r30
+ 826:	ff 93       	push	r31
+	timer1_count++;
+ 828:	80 91 f4 01 	lds	r24, 0x01F4
+ 82c:	8f 5f       	subi	r24, 0xFF	; 255
+ 82e:	80 93 f4 01 	sts	0x01F4, r24
+	if(timer1_count==10)
+ 832:	8a 30       	cpi	r24, 0x0A	; 10
+ 834:	79 f4       	brne	.+30     	; 0x854 <__vector_8+0x4e>
+	{
+		room.lamp_on_off_timer_min--;
+ 836:	80 91 e8 01 	lds	r24, 0x01E8
+ 83a:	90 91 e9 01 	lds	r25, 0x01E9
+ 83e:	01 97       	sbiw	r24, 0x01	; 1
+ 840:	90 93 e9 01 	sts	0x01E9, r25
+ 844:	80 93 e8 01 	sts	0x01E8, r24
+ 		TCNT1H = 0x1C;
+ 848:	8c e1       	ldi	r24, 0x1C	; 28
+ 84a:	8d bd       	out	0x2d, r24	; 45
+ 		TCNT1L = 0xC0;
+ 84c:	80 ec       	ldi	r24, 0xC0	; 192
+ 84e:	8c bd       	out	0x2c, r24	; 44
+		timer1_count=0;	
+ 850:	10 92 f4 01 	sts	0x01F4, r1
+	}
+	if(room.lamp_on_off_timer_min==0)		
+ 854:	80 91 e8 01 	lds	r24, 0x01E8
+ 858:	90 91 e9 01 	lds	r25, 0x01E9
+ 85c:	00 97       	sbiw	r24, 0x00	; 0
+ 85e:	11 f4       	brne	.+4      	; 0x864 <__vector_8+0x5e>
+	{
+		timer1_off();
+ 860:	18 dd       	rcall	.-1488   	; 0x292 <timer1_off>
+		time_end();
+ 862:	21 dd       	rcall	.-1470   	; 0x2a6 <time_end>
+	}	
+}
+ 864:	ff 91       	pop	r31
+ 866:	ef 91       	pop	r30
+ 868:	bf 91       	pop	r27
+ 86a:	af 91       	pop	r26
+ 86c:	9f 91       	pop	r25
+ 86e:	8f 91       	pop	r24
+ 870:	7f 91       	pop	r23
+ 872:	6f 91       	pop	r22
+ 874:	5f 91       	pop	r21
+ 876:	4f 91       	pop	r20
+ 878:	3f 91       	pop	r19
+ 87a:	2f 91       	pop	r18
+ 87c:	0f 90       	pop	r0
+ 87e:	0f be       	out	0x3f, r0	; 63
+ 880:	0f 90       	pop	r0
+ 882:	1f 90       	pop	r1
+ 884:	18 95       	reti
+
+00000886 <__vector_4>:
+ISR(TIMER2_OVF_vect)
+{
+ 886:	1f 92       	push	r1
+ 888:	0f 92       	push	r0
+ 88a:	0f b6       	in	r0, 0x3f	; 63
+ 88c:	0f 92       	push	r0
+ 88e:	11 24       	eor	r1, r1
+ 890:	2f 93       	push	r18
+ 892:	3f 93       	push	r19
+ 894:	4f 93       	push	r20
+ 896:	5f 93       	push	r21
+ 898:	6f 93       	push	r22
+ 89a:	7f 93       	push	r23
+ 89c:	8f 93       	push	r24
+ 89e:	9f 93       	push	r25
+ 8a0:	af 93       	push	r26
+ 8a2:	bf 93       	push	r27
+ 8a4:	ef 93       	push	r30
+ 8a6:	ff 93       	push	r31
+	timer2_count++;
+ 8a8:	80 91 33 02 	lds	r24, 0x0233
+ 8ac:	8f 5f       	subi	r24, 0xFF	; 255
+ 8ae:	80 93 33 02 	sts	0x0233, r24
+	if (timer2_count == 42)
+ 8b2:	8a 32       	cpi	r24, 0x2A	; 42
+ 8b4:	a1 f4       	brne	.+40     	; 0x8de <__vector_4+0x58>
+	{
+		timer2_count=0;
+ 8b6:	10 92 33 02 	sts	0x0233, r1
+		timer2_second_counter++;
+ 8ba:	80 91 34 02 	lds	r24, 0x0234
+ 8be:	8f 5f       	subi	r24, 0xFF	; 255
+ 8c0:	80 93 34 02 	sts	0x0234, r24
+		if (timer2_second_counter > 5)
+ 8c4:	86 30       	cpi	r24, 0x06	; 6
+ 8c6:	10 f0       	brcs	.+4      	; 0x8cc <__vector_4+0x46>
+		{
+			if (Inside_Pin & (1<<INT1_pir_motion))
+ 8c8:	83 99       	sbic	0x10, 3	; 16
+			{
+				Timer2_Stop();
+ 8ca:	11 df       	rcall	.-478    	; 0x6ee <Timer2_Stop>
+			}
+		}
+		
+		if (timer2_second_counter==room.tolerance_time_for_no_person_in_room)
+ 8cc:	90 91 ed 01 	lds	r25, 0x01ED
+ 8d0:	80 91 34 02 	lds	r24, 0x0234
+ 8d4:	98 17       	cp	r25, r24
+ 8d6:	19 f4       	brne	.+6      	; 0x8de <__vector_4+0x58>
+		{
+			timer2_second_counter=0;
+ 8d8:	10 92 34 02 	sts	0x0234, r1
+			Timer2_time_end();
+ 8dc:	11 df       	rcall	.-478    	; 0x700 <Timer2_time_end>
+		}
+	}
+}
+ 8de:	ff 91       	pop	r31
+ 8e0:	ef 91       	pop	r30
+ 8e2:	bf 91       	pop	r27
+ 8e4:	af 91       	pop	r26
+ 8e6:	9f 91       	pop	r25
+ 8e8:	8f 91       	pop	r24
+ 8ea:	7f 91       	pop	r23
+ 8ec:	6f 91       	pop	r22
+ 8ee:	5f 91       	pop	r21
+ 8f0:	4f 91       	pop	r20
+ 8f2:	3f 91       	pop	r19
+ 8f4:	2f 91       	pop	r18
+ 8f6:	0f 90       	pop	r0
+ 8f8:	0f be       	out	0x3f, r0	; 63
+ 8fa:	0f 90       	pop	r0
+ 8fc:	1f 90       	pop	r1
+ 8fe:	18 95       	reti
+
+00000900 <__vector_11>:
+ISR (USART_RXC_vect)
+{
+ 900:	1f 92       	push	r1
+ 902:	0f 92       	push	r0
+ 904:	0f b6       	in	r0, 0x3f	; 63
+ 906:	0f 92       	push	r0
+ 908:	11 24       	eor	r1, r1
+ 90a:	2f 93       	push	r18
+ 90c:	3f 93       	push	r19
+ 90e:	4f 93       	push	r20
+ 910:	5f 93       	push	r21
+ 912:	8f 93       	push	r24
+ 914:	9f 93       	push	r25
+ 916:	af 93       	push	r26
+ 918:	bf 93       	push	r27
+ 91a:	ef 93       	push	r30
+ 91c:	ff 93       	push	r31
+	if (sp2 == 30)
+ 91e:	80 91 f5 01 	lds	r24, 0x01F5
+ 922:	8e 31       	cpi	r24, 0x1E	; 30
+ 924:	61 f4       	brne	.+24     	; 0x93e <__vector_11+0x3e>
+ 926:	e6 ef       	ldi	r30, 0xF6	; 246
+ 928:	f1 e0       	ldi	r31, 0x01	; 1
+			timer2_second_counter=0;
+			Timer2_time_end();
+		}
+	}
+}
+ISR (USART_RXC_vect)
+ 92a:	cf 01       	movw	r24, r30
+ 92c:	4d 96       	adiw	r24, 0x1d	; 29
+{
+	if (sp2 == 30)
+	{
+		for (int j = 0 ; j < 29 ; j++ )
+		{
+			buffer2[j] = buffer2[j+1];
+ 92e:	21 81       	ldd	r18, Z+1	; 0x01
+ 930:	21 93       	st	Z+, r18
+}
+ISR (USART_RXC_vect)
+{
+	if (sp2 == 30)
+	{
+		for (int j = 0 ; j < 29 ; j++ )
+ 932:	e8 17       	cp	r30, r24
+ 934:	f9 07       	cpc	r31, r25
+ 936:	d9 f7       	brne	.-10     	; 0x92e <__vector_11+0x2e>
+		{
+			buffer2[j] = buffer2[j+1];
+		}
+		sp2--;
+ 938:	8d e1       	ldi	r24, 0x1D	; 29
+ 93a:	80 93 f5 01 	sts	0x01F5, r24
+	}
+	buffer2[sp]=UDR;
+ 93e:	2c b1       	in	r18, 0x0c	; 12
+ 940:	30 91 36 02 	lds	r19, 0x0236
+ 944:	86 ef       	ldi	r24, 0xF6	; 246
+ 946:	91 e0       	ldi	r25, 0x01	; 1
+ 948:	fc 01       	movw	r30, r24
+ 94a:	e3 0f       	add	r30, r19
+ 94c:	f1 1d       	adc	r31, r1
+ 94e:	20 83       	st	Z, r18
+	sp2++;
+ 950:	50 91 f5 01 	lds	r21, 0x01F5
+ 954:	45 2f       	mov	r20, r21
+ 956:	4f 5f       	subi	r20, 0xFF	; 255
+ 958:	40 93 f5 01 	sts	0x01F5, r20
+	if(buffer2[sp2-2]==0X0D)
+ 95c:	24 2f       	mov	r18, r20
+ 95e:	30 e0       	ldi	r19, 0x00	; 0
+ 960:	82 0f       	add	r24, r18
+ 962:	93 1f       	adc	r25, r19
+ 964:	fc 01       	movw	r30, r24
+ 966:	32 97       	sbiw	r30, 0x02	; 2
+ 968:	80 81       	ld	r24, Z
+ 96a:	8d 30       	cpi	r24, 0x0D	; 13
+ 96c:	e1 f4       	brne	.+56     	; 0x9a6 <__vector_11+0xa6>
+	{
+		if(buffer2[sp2-1]==0X0A)
+ 96e:	2b 50       	subi	r18, 0x0B	; 11
+ 970:	3e 4f       	sbci	r19, 0xFE	; 254
+ 972:	f9 01       	movw	r30, r18
+ 974:	80 81       	ld	r24, Z
+ 976:	8a 30       	cpi	r24, 0x0A	; 10
+ 978:	b1 f4       	brne	.+44     	; 0x9a6 <__vector_11+0xa6>
+				//sp=0;
+			//}
+			//else
+			//{
+				//rx_operation();
+				for(char i=0;i<sp2;i++)
+ 97a:	44 23       	and	r20, r20
+ 97c:	69 f0       	breq	.+26     	; 0x998 <__vector_11+0x98>
+ 97e:	e6 ef       	ldi	r30, 0xF6	; 246
+ 980:	f1 e0       	ldi	r31, 0x01	; 1
+ 982:	a4 e1       	ldi	r26, 0x14	; 20
+ 984:	b2 e0       	ldi	r27, 0x02	; 2
+			timer2_second_counter=0;
+			Timer2_time_end();
+		}
+	}
+}
+ISR (USART_RXC_vect)
+ 986:	cf 01       	movw	r24, r30
+ 988:	01 96       	adiw	r24, 0x01	; 1
+ 98a:	85 0f       	add	r24, r21
+ 98c:	91 1d       	adc	r25, r1
+			//else
+			//{
+				//rx_operation();
+				for(char i=0;i<sp2;i++)
+				{
+					buffer[i]=buffer2[i];
+ 98e:	21 91       	ld	r18, Z+
+ 990:	2d 93       	st	X+, r18
+				//sp=0;
+			//}
+			//else
+			//{
+				//rx_operation();
+				for(char i=0;i<sp2;i++)
+ 992:	e8 17       	cp	r30, r24
+ 994:	f9 07       	cpc	r31, r25
+ 996:	d9 f7       	brne	.-10     	; 0x98e <__vector_11+0x8e>
+				{
+					buffer[i]=buffer2[i];
+				}
+				sp=sp2;
+ 998:	40 93 36 02 	sts	0x0236, r20
+				room.need_for_rx_operation=1;
+ 99c:	81 e0       	ldi	r24, 0x01	; 1
+ 99e:	80 93 f1 01 	sts	0x01F1, r24
+				sp2=0;		
+ 9a2:	10 92 f5 01 	sts	0x01F5, r1
+			//}
+
+		}
+	}
+}
+ 9a6:	ff 91       	pop	r31
+ 9a8:	ef 91       	pop	r30
+ 9aa:	bf 91       	pop	r27
+ 9ac:	af 91       	pop	r26
+ 9ae:	9f 91       	pop	r25
+ 9b0:	8f 91       	pop	r24
+ 9b2:	5f 91       	pop	r21
+ 9b4:	4f 91       	pop	r20
+ 9b6:	3f 91       	pop	r19
+ 9b8:	2f 91       	pop	r18
+ 9ba:	0f 90       	pop	r0
+ 9bc:	0f be       	out	0x3f, r0	; 63
+ 9be:	0f 90       	pop	r0
+ 9c0:	1f 90       	pop	r1
+ 9c2:	18 95       	reti
+
+000009c4 <__vector_1>:
+ISR(INT0_vect)
+{
+ 9c4:	1f 92       	push	r1
+ 9c6:	0f 92       	push	r0
+ 9c8:	0f b6       	in	r0, 0x3f	; 63
+ 9ca:	0f 92       	push	r0
+ 9cc:	11 24       	eor	r1, r1
+ 9ce:	2f 93       	push	r18
+ 9d0:	3f 93       	push	r19
+ 9d2:	4f 93       	push	r20
+ 9d4:	5f 93       	push	r21
+ 9d6:	6f 93       	push	r22
+ 9d8:	7f 93       	push	r23
+ 9da:	8f 93       	push	r24
+ 9dc:	9f 93       	push	r25
+ 9de:	af 93       	push	r26
+ 9e0:	bf 93       	push	r27
+ 9e2:	ef 93       	push	r30
+ 9e4:	ff 93       	push	r31
+	if ((!(Inside_Pin & (1<<INT0_Pir_enter_exit))) != (!(room.INT0_Pir_enter_exit_last_situation)))  //if((Inside_Pin & (1<<INT0_Pir_enter_exit)) logical xor (room.INT0_Pir_enter_exit_last_situation))	//baraye jelo giri az amal kardane pulse ke az taghire jarayane barg tolid mishavad
+ 9e6:	91 e0       	ldi	r25, 0x01	; 1
+ 9e8:	82 99       	sbic	0x10, 2	; 16
+ 9ea:	90 e0       	ldi	r25, 0x00	; 0
+ 9ec:	81 e0       	ldi	r24, 0x01	; 1
+ 9ee:	20 91 f3 01 	lds	r18, 0x01F3
+ 9f2:	21 11       	cpse	r18, r1
+ 9f4:	80 e0       	ldi	r24, 0x00	; 0
+ 9f6:	98 17       	cp	r25, r24
+ 9f8:	f1 f0       	breq	.+60     	; 0xa36 <__vector_1+0x72>
+	{
+		if(Inside_Pin & (1<<INT0_Pir_enter_exit))
+ 9fa:	82 9b       	sbis	0x10, 2	; 16
+ 9fc:	11 c0       	rjmp	.+34     	; 0xa20 <__vector_1+0x5c>
+		{
+			room.INT0_Pir_enter_exit_last_situation=1;
+ 9fe:	81 e0       	ldi	r24, 0x01	; 1
+ a00:	80 93 f3 01 	sts	0x01F3, r24
+			// ehtemalan vurud ya khuruji surat gereft
+			if (!(Inside_Pin & (1<<INT1_pir_motion)))
+ a04:	83 99       	sbic	0x10, 3	; 16
+ a06:	0a c0       	rjmp	.+20     	; 0xa1c <__vector_1+0x58>
+			{
+				//vurud anjam shode
+				Timer2_Stop();
+ a08:	72 de       	rcall	.-796    	; 0x6ee <Timer2_Stop>
+				room.someone_in_room=1;
+ a0a:	81 e0       	ldi	r24, 0x01	; 1
+ a0c:	80 93 f0 01 	sts	0x01F0, r24
+				if (room.Is_Dark)
+ a10:	80 91 ec 01 	lds	r24, 0x01EC
+ a14:	88 23       	and	r24, r24
+ a16:	79 f0       	breq	.+30     	; 0xa36 <__vector_1+0x72>
+				{
+					lamp_auto_on();
+ a18:	d3 db       	rcall	.-2138   	; 0x1c0 <lamp_auto_on>
+ a1a:	0d c0       	rjmp	.+26     	; 0xa36 <__vector_1+0x72>
+				}
+			}
+			else
+			{
+				// ehtemalan khuruj anjam shode va bayad check shavad
+				Timer2_Start();
+ a1c:	63 de       	rcall	.-826    	; 0x6e4 <Timer2_Start>
+ a1e:	0b c0       	rjmp	.+22     	; 0xa36 <__vector_1+0x72>
+			}
+		}
+		else
+		{
+			room.INT0_Pir_enter_exit_last_situation=0;
+ a20:	10 92 f3 01 	sts	0x01F3, r1
+			if (Inside_Pin & (1<<INT1_pir_motion))
+ a24:	83 99       	sbic	0x10, 3	; 16
+ a26:	07 c0       	rjmp	.+14     	; 0xa36 <__vector_1+0x72>
+			{
+				
+			}
+			else
+			{
+				if (TCCR2 & (1<<CS20 | 1<<CS21 | 1<<CS22))
+ a28:	85 b5       	in	r24, 0x25	; 37
+ a2a:	90 e0       	ldi	r25, 0x00	; 0
+ a2c:	87 70       	andi	r24, 0x07	; 7
+ a2e:	90 70       	andi	r25, 0x00	; 0
+ a30:	00 97       	sbiw	r24, 0x00	; 0
+ a32:	09 f4       	brne	.+2      	; 0xa36 <__vector_1+0x72>
+					// ehtemalan khuruj anjam shode va dar hale check shodan ast
+				}
+				else
+				{
+					// ehtemalan khuruj anjam shode va bayad check shavad
+					Timer2_Start();
+ a34:	57 de       	rcall	.-850    	; 0x6e4 <Timer2_Start>
+				}
+			}
+		}
+	}
+}
+ a36:	ff 91       	pop	r31
+ a38:	ef 91       	pop	r30
+ a3a:	bf 91       	pop	r27
+ a3c:	af 91       	pop	r26
+ a3e:	9f 91       	pop	r25
+ a40:	8f 91       	pop	r24
+ a42:	7f 91       	pop	r23
+ a44:	6f 91       	pop	r22
+ a46:	5f 91       	pop	r21
+ a48:	4f 91       	pop	r20
+ a4a:	3f 91       	pop	r19
+ a4c:	2f 91       	pop	r18
+ a4e:	0f 90       	pop	r0
+ a50:	0f be       	out	0x3f, r0	; 63
+ a52:	0f 90       	pop	r0
+ a54:	1f 90       	pop	r1
+ a56:	18 95       	reti
+
+00000a58 <__vector_2>:
+ISR(INT1_vect)
+{
+ a58:	1f 92       	push	r1
+ a5a:	0f 92       	push	r0
+ a5c:	0f b6       	in	r0, 0x3f	; 63
+ a5e:	0f 92       	push	r0
+ a60:	11 24       	eor	r1, r1
+ a62:	2f 93       	push	r18
+ a64:	3f 93       	push	r19
+ a66:	4f 93       	push	r20
+ a68:	5f 93       	push	r21
+ a6a:	6f 93       	push	r22
+ a6c:	7f 93       	push	r23
+ a6e:	8f 93       	push	r24
+ a70:	9f 93       	push	r25
+ a72:	af 93       	push	r26
+ a74:	bf 93       	push	r27
+ a76:	ef 93       	push	r30
+ a78:	ff 93       	push	r31
+	//There are somebody in the room
+	if (Inside_Pin & (1<<INT1_pir_motion))									//baraye jelo giri az amal kardane pulse ke az taghire jarayane barg tolid mishavad
+ a7a:	83 9b       	sbis	0x10, 3	; 16
+ a7c:	08 c0       	rjmp	.+16     	; 0xa8e <__vector_2+0x36>
+	{
+		room.someone_in_room=1;
+ a7e:	81 e0       	ldi	r24, 0x01	; 1
+ a80:	80 93 f0 01 	sts	0x01F0, r24
+		Timer2_Stop();
+ a84:	34 de       	rcall	.-920    	; 0x6ee <Timer2_Stop>
+		if (room.Is_Dark)
+ a86:	80 91 ec 01 	lds	r24, 0x01EC
+ a8a:	81 11       	cpse	r24, r1
+		{
+			lamp_auto_on();
+ a8c:	99 db       	rcall	.-2254   	; 0x1c0 <lamp_auto_on>
+		}
+	}	
+}
+ a8e:	ff 91       	pop	r31
+ a90:	ef 91       	pop	r30
+ a92:	bf 91       	pop	r27
+ a94:	af 91       	pop	r26
+ a96:	9f 91       	pop	r25
+ a98:	8f 91       	pop	r24
+ a9a:	7f 91       	pop	r23
+ a9c:	6f 91       	pop	r22
+ a9e:	5f 91       	pop	r21
+ aa0:	4f 91       	pop	r20
+ aa2:	3f 91       	pop	r19
+ aa4:	2f 91       	pop	r18
+ aa6:	0f 90       	pop	r0
+ aa8:	0f be       	out	0x3f, r0	; 63
+ aaa:	0f 90       	pop	r0
+ aac:	1f 90       	pop	r1
+ aae:	18 95       	reti
+
+00000ab0 <__vector_14>:
+ISR(ADC_vect)
+{									
+ ab0:	1f 92       	push	r1
+ ab2:	0f 92       	push	r0
+ ab4:	0f b6       	in	r0, 0x3f	; 63
+ ab6:	0f 92       	push	r0
+ ab8:	11 24       	eor	r1, r1
+			//{
+				//lamp_auto_on();
+			//}
+		//}
+	//}	
+ aba:	0f 90       	pop	r0
+ abc:	0f be       	out	0x3f, r0	; 63
+ abe:	0f 90       	pop	r0
+ ac0:	1f 90       	pop	r1
+ ac2:	18 95       	reti
+
+00000ac4 <_exit>:
+ ac4:	f8 94       	cli
+
+00000ac6 <__stop_program>:
+ ac6:	ff cf       	rjmp	.-2      	; 0xac6 <__stop_program>
